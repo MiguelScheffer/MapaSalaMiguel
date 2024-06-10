@@ -29,7 +29,7 @@ namespace MapaSalaMiguel.formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtGridUsuarios = new System.Windows.Forms.DataGridView();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,17 +41,17 @@ namespace MapaSalaMiguel.formularios
             this.txtboxSenha = new System.Windows.Forms.TextBox();
             this.txtboxNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtGridUsuarios
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(438, 111);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(315, 215);
-            this.dataGridView1.TabIndex = 11;
+            this.dtGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridUsuarios.Location = new System.Drawing.Point(438, 111);
+            this.dtGridUsuarios.Name = "dtGridUsuarios";
+            this.dtGridUsuarios.RowTemplate.Height = 25;
+            this.dtGridUsuarios.Size = new System.Drawing.Size(315, 215);
+            this.dtGridUsuarios.TabIndex = 11;
             // 
             // btnSalvar
             // 
@@ -61,6 +61,7 @@ namespace MapaSalaMiguel.formularios
             this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label1
             // 
@@ -128,6 +129,7 @@ namespace MapaSalaMiguel.formularios
             // 
             this.txtboxSenha.Location = new System.Drawing.Point(80, 205);
             this.txtboxSenha.Name = "txtboxSenha";
+            this.txtboxSenha.PasswordChar = '*';
             this.txtboxSenha.Size = new System.Drawing.Size(100, 20);
             this.txtboxSenha.TabIndex = 21;
             // 
@@ -163,10 +165,10 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtGridUsuarios);
             this.Name = "FrmUsuarios";
             this.Text = "FrmUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,7 +176,7 @@ namespace MapaSalaMiguel.formularios
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtGridUsuarios;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

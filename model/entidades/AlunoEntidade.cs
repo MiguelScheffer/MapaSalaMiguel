@@ -12,7 +12,7 @@ namespace model.entidades
         public string nome { get; set; }
         public int idade { get; set; }
         public int sala { get; set; }
-        public bool estanaescola { get; set; }
+        public bool estudante { get; set; }
         public string apelido { get; set; }
     }
 }

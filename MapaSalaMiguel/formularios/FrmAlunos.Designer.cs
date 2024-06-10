@@ -31,7 +31,7 @@ namespace MapaSalaMiguel.formularios
         {
             this.chkboxEstudante = new System.Windows.Forms.CheckBox();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtGridAlunos = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.txtboxID = new System.Windows.Forms.TextBox();
             this.txtboxNome = new System.Windows.Forms.TextBox();
@@ -43,7 +43,7 @@ namespace MapaSalaMiguel.formularios
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridAlunos)).BeginInit();
             this.SuspendLayout();
             // 
             // chkboxEstudante
@@ -65,15 +65,16 @@ namespace MapaSalaMiguel.formularios
             this.btnSalvar.TabIndex = 27;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // dataGridView1
+            // dtGridAlunos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(374, 109);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(315, 215);
-            this.dataGridView1.TabIndex = 26;
+            this.dtGridAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridAlunos.Location = new System.Drawing.Point(374, 109);
+            this.dtGridAlunos.Name = "dtGridAlunos";
+            this.dtGridAlunos.RowTemplate.Height = 25;
+            this.dtGridAlunos.Size = new System.Drawing.Size(315, 215);
+            this.dtGridAlunos.TabIndex = 26;
             // 
             // label4
             // 
@@ -183,10 +184,10 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.chkboxEstudante);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtGridAlunos);
             this.Name = "FrmAlunos";
             this.Text = "FrmAlunos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridAlunos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +197,7 @@ namespace MapaSalaMiguel.formularios
 
         private System.Windows.Forms.CheckBox chkboxEstudante;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtGridAlunos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtboxID;
         private System.Windows.Forms.TextBox txtboxNome;

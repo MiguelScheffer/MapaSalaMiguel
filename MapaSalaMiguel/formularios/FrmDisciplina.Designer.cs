@@ -29,7 +29,7 @@ namespace MapaSalaMiguel.formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtGridDisciplina = new System.Windows.Forms.DataGridView();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,17 +39,17 @@ namespace MapaSalaMiguel.formularios
             this.txtboxNome = new System.Windows.Forms.TextBox();
             this.txtboxSigla = new System.Windows.Forms.TextBox();
             this.chkboxAtivo = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtGridDisciplina
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(359, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(315, 215);
-            this.dataGridView1.TabIndex = 12;
+            this.dtGridDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridDisciplina.Location = new System.Drawing.Point(359, 101);
+            this.dtGridDisciplina.Name = "dtGridDisciplina";
+            this.dtGridDisciplina.RowTemplate.Height = 25;
+            this.dtGridDisciplina.Size = new System.Drawing.Size(315, 215);
+            this.dtGridDisciplina.TabIndex = 12;
             // 
             // btnSalvar
             // 
@@ -59,6 +59,7 @@ namespace MapaSalaMiguel.formularios
             this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label4
             // 
@@ -142,10 +143,10 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtGridDisciplina);
             this.Name = "FrmDisciplina";
             this.Text = "FrmDisciplina";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +154,7 @@ namespace MapaSalaMiguel.formularios
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtGridDisciplina;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;

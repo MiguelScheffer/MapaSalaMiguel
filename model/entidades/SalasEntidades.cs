@@ -9,8 +9,11 @@ namespace model.entidades
     public class SalasEntidades
     {
         public int Id { get; set; }
+        public int ano { get; set; }
+        
+        public string periodo { get; set; }
         public string Nome { get; set; }
-        public string NumeroComputador { get; set; }
+        public int NumeroComputador { get; set; }
         public bool IsLab { get; set; }
         public int NumeroCadeiras { get; set; }
         public bool Disponivel { get; set; }

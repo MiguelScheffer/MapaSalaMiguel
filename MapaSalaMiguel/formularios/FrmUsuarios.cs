@@ -1,4 +1,5 @@
-﻿using System;
+﻿using model.entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,28 @@ namespace MapaSalaMiguel.formularios
 {
     public partial class FrmUsuarios : Form
     {
+        BindingSource dados;
         public FrmUsuarios()
         {
             InitializeComponent();
+            dados = new BindingSource();
+            dtGridUsuarios.DataSource = dados;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            UsuariosEntidade usuario = new UsuariosEntidade();
+            usuario.Id = Convert.ToInt32(txtboxId.Text);
+            usuario.Login = txtboxLogin.Text;
+            usuario.Senha = txtboxSenha.Text;
+            usuario.Nome = txtboxNome.Text;
+            usuario.Ativo = chkboxAtivo.Checked;
+            dados.Add(usuario);
         }
     }
 }

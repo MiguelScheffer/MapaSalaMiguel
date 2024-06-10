@@ -35,10 +35,10 @@ namespace MapaSalaMiguel.formularios
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtGridProfessor = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridProfessor)).BeginInit();
             this.SuspendLayout();
             // 
             // txtboxId
@@ -92,14 +92,15 @@ namespace MapaSalaMiguel.formularios
             this.label3.Text = "Nome";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dataGridView1
+            // dtGridProfessor
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(380, 134);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(315, 215);
-            this.dataGridView1.TabIndex = 11;
+            this.dtGridProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridProfessor.Location = new System.Drawing.Point(380, 134);
+            this.dtGridProfessor.Name = "dtGridProfessor";
+            this.dtGridProfessor.RowTemplate.Height = 25;
+            this.dtGridProfessor.Size = new System.Drawing.Size(315, 215);
+            this.dtGridProfessor.TabIndex = 11;
+            this.dtGridProfessor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label4
             // 
@@ -118,6 +119,7 @@ namespace MapaSalaMiguel.formularios
             this.btnSalvar.TabIndex = 13;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // FrmProfessor
             // 
@@ -126,7 +128,7 @@ namespace MapaSalaMiguel.formularios
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtGridProfessor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -135,7 +137,7 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.txtboxId);
             this.Name = "FrmProfessor";
             this.Text = "FrmProfessor";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridProfessor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,7 +151,7 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtGridProfessor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSalvar;
     }

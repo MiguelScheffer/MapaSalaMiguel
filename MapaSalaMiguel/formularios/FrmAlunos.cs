@@ -1,4 +1,5 @@
-﻿using System;
+﻿using model.entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace MapaSalaMiguel.formularios
 {
     public partial class FrmAlunos : Form
     {
+        BindingSource dados;
         public FrmAlunos()
         {
             InitializeComponent();
+            dados = new BindingSource();
+            dtGridAlunos.DataSource = dados;
         }
 
         private void chkboxVagas_CheckedChanged(object sender, EventArgs e)
@@ -26,5 +30,17 @@ namespace MapaSalaMiguel.formularios
         {
 
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            AlunoEntidade aluno = new AlunoEntidade();
+            aluno.ID = Convert.ToInt32(txtboxID.Text);
+            aluno.nome = txtboxNome.Text;
+            aluno.idade = Convert.ToInt32(txtboxIdade.Text);
+            aluno.sala = Convert.ToInt32(txtboxSala.Text);
+            aluno.apelido = txtBoxApelido.Text;
+            aluno.estudante = chkboxEstudante.Checked;
+            dados.Add(aluno);
+                }
     }
 }
