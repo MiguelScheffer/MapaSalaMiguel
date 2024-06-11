@@ -48,5 +48,10 @@ namespace MapaSalaMiguel.formularios
             txtboxSigla.Text = "";
             chkboxAtivo.Checked = false;
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
+        }
     }
 }

@@ -40,6 +40,7 @@ namespace MapaSalaMiguel.formularios
             this.txtboxSigla = new System.Windows.Forms.TextBox();
             this.chkboxAtivo = new System.Windows.Forms.CheckBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,11 +142,22 @@ namespace MapaSalaMiguel.formularios
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(236, 314);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(64, 20);
+            this.btnExcluir.TabIndex = 42;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // FrmDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.chkboxAtivo);
             this.Controls.Add(this.txtboxSigla);
@@ -178,5 +190,6 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.TextBox txtboxSigla;
         private System.Windows.Forms.CheckBox chkboxAtivo;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

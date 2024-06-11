@@ -62,5 +62,10 @@ namespace MapaSala.Formularios
             chkDisponivel.Checked = false;
             chkLaboratorio.Checked = false;
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridSalas.Rows.RemoveAt(LinhaSelecionada);
+        }
     }
 }

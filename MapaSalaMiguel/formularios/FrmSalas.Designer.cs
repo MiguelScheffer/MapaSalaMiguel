@@ -41,6 +41,7 @@ namespace MapaSala.Formularios
             this.chkLaboratorio = new System.Windows.Forms.CheckBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numComputadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCadeiras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
@@ -156,11 +157,22 @@ namespace MapaSala.Formularios
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(134, 324);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(64, 20);
+            this.btnExcluir.TabIndex = 43;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.chkDisponivel);
             this.Controls.Add(this.chkLaboratorio);
@@ -197,5 +209,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.CheckBox chkLaboratorio;
         private System.Windows.Forms.CheckBox chkDisponivel;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

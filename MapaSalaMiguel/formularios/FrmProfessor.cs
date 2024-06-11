@@ -63,5 +63,10 @@ namespace MapaSalaMiguel.formularios
             txtboxNome.Text = "";
             txtboxApelido.Text = "";
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            dtGridProfessor.Rows.RemoveAt(LinhaSelecionada);
+        }
     }
 }
