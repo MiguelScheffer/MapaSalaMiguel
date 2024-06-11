@@ -13,11 +13,12 @@ namespace MapaSalaMiguel.formularios
 {
     public partial class FrmAlunos : Form
     {
-        BindingSource dados;
+        DataTable dados;
+        int LinhaSelecionada;
         public FrmAlunos()
         {
             InitializeComponent();
-            dados = new BindingSource();
+            dados = new DataTable();
             dtGridAlunos.DataSource = dados;
         }
 
