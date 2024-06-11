@@ -35,6 +35,20 @@ namespace MapaSalaMiguel.formularios
             cursos.periodo = txtboxPeriodo.Text;
             cursos.Disponivel = chkboxVagas.Checked;
             dados.Add(cursos);
+            limpar();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+        private void limpar()
+        {
+            txtboxId.Text = "";
+            txtboxAno.Text = "";
+            txtboxNome.Text = "";
+            txtboxPeriodo.Text = "";
+            chkboxVagas.Checked = false;
         }
     }
 }

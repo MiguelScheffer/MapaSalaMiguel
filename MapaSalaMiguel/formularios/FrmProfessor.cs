@@ -44,11 +44,24 @@ namespace MapaSalaMiguel.formularios
             professor.Nome = txtboxNome.Text;
             professor.Apelido = txtboxApelido.Text; // apelido do professor
             dados.Add(professor);
+            limpar();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+
+            limpar();
+        }
+        private void limpar()
+        {
+            txtboxId.Text = "";
+            txtboxNome.Text = "";
+            txtboxApelido.Text = "";
         }
     }
 }

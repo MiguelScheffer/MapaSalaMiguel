@@ -35,6 +35,20 @@ namespace MapaSalaMiguel.formularios
             usuario.Nome = txtboxNome.Text;
             usuario.Ativo = chkboxAtivo.Checked;
             dados.Add(usuario);
+            limpar();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+        private void limpar()
+        {
+            txtboxId.Text = "";
+            txtboxLogin.Text = "";
+            txtboxNome.Text = "";
+            txtboxSenha.Text = "";
+            chkboxAtivo.Checked = false;
         }
     }
 }

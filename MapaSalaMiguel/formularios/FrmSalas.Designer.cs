@@ -40,6 +40,7 @@ namespace MapaSala.Formularios
             this.dtGridSalas = new System.Windows.Forms.DataGridView();
             this.chkLaboratorio = new System.Windows.Forms.CheckBox();
             this.chkDisponivel = new System.Windows.Forms.CheckBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numComputadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCadeiras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
@@ -144,11 +145,22 @@ namespace MapaSala.Formularios
             this.chkDisponivel.Text = "Disponível";
             this.chkDisponivel.UseVisualStyleBackColor = true;
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(64, 298);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(64, 20);
+            this.btnLimpar.TabIndex = 41;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.chkDisponivel);
             this.Controls.Add(this.chkLaboratorio);
             this.Controls.Add(this.dtGridSalas);
@@ -183,5 +195,6 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.DataGridView dtGridSalas;
         private System.Windows.Forms.CheckBox chkLaboratorio;
         private System.Windows.Forms.CheckBox chkDisponivel;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

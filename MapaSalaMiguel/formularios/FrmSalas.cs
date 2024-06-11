@@ -46,7 +46,21 @@ namespace MapaSala.Formularios
             sala.Disponivel = chkDisponivel.Checked;
 
             dados.Add(sala);
+            limpar();
 
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+        private void limpar()
+        {
+            txtnomesala.Text = "";
+            numCadeiras.Text = "";
+            numComputadores.Text = "";
+            chkDisponivel.Checked = false;
+            chkLaboratorio.Checked = false;
         }
     }
 }

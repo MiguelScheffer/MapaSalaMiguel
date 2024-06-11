@@ -41,6 +41,21 @@ namespace MapaSalaMiguel.formularios
             aluno.apelido = txtBoxApelido.Text;
             aluno.estudante = chkboxEstudante.Checked;
             dados.Add(aluno);
+            limpar();
                 }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+        private void limpar()
+        {
+            txtboxID.Text = "";
+            txtboxNome.Text = "";
+            txtboxIdade.Text = "";
+            txtBoxApelido.Text = "";
+            txtboxSala.Text = "";
+            chkboxEstudante.Checked = false;
+        }
     }
 }

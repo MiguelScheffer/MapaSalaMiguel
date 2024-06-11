@@ -34,6 +34,19 @@ namespace MapaSalaMiguel.formularios
             disciplina.sigla = txtboxSigla.Text;
             disciplina.ativo = chkboxAtivo.Checked;
             dados.Add(disciplina);
+            limpar();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+        private void limpar()
+        {
+            txtboxNome.Text = "";
+            txtboxId.Text = "";
+            txtboxSigla.Text = "";
+            chkboxAtivo.Checked = false;
         }
     }
 }

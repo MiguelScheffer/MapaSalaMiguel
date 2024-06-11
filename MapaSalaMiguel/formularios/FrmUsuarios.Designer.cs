@@ -41,6 +41,7 @@ namespace MapaSalaMiguel.formularios
             this.txtboxSenha = new System.Windows.Forms.TextBox();
             this.txtboxNome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,11 +150,22 @@ namespace MapaSalaMiguel.formularios
             this.label5.TabIndex = 23;
             this.label5.Text = "Formulário";
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(150, 306);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(64, 20);
+            this.btnLimpar.TabIndex = 41;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtboxNome);
             this.Controls.Add(this.txtboxSenha);
@@ -188,5 +200,6 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.TextBox txtboxSenha;
         private System.Windows.Forms.TextBox txtboxNome;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

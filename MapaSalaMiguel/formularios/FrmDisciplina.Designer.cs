@@ -39,6 +39,7 @@ namespace MapaSalaMiguel.formularios
             this.txtboxNome = new System.Windows.Forms.TextBox();
             this.txtboxSigla = new System.Windows.Forms.TextBox();
             this.chkboxAtivo = new System.Windows.Forms.CheckBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,22 @@ namespace MapaSalaMiguel.formularios
             this.chkboxAtivo.Text = "Ativo";
             this.chkboxAtivo.UseVisualStyleBackColor = true;
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(166, 314);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(64, 20);
+            this.btnLimpar.TabIndex = 41;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // FrmDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.chkboxAtivo);
             this.Controls.Add(this.txtboxSigla);
             this.Controls.Add(this.txtboxNome);
@@ -164,5 +176,6 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.TextBox txtboxNome;
         private System.Windows.Forms.TextBox txtboxSigla;
         private System.Windows.Forms.CheckBox chkboxAtivo;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
