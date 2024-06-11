@@ -117,6 +117,7 @@ namespace MapaSala.Formularios
             // 
             // dtGridSalas
             // 
+            this.dtGridSalas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridSalas.Location = new System.Drawing.Point(255, 96);
             this.dtGridSalas.Name = "dtGridSalas";

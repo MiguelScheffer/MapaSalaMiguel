@@ -43,6 +43,7 @@ namespace MapaSalaMiguel.formularios
             limpar();
         }
         private void limpar()
+
         {
             txtboxId.Text = "";
             txtboxLogin.Text = "";

@@ -47,6 +47,7 @@ namespace MapaSalaMiguel.formularios
             // 
             // dtGridUsuarios
             // 
+            this.dtGridUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridUsuarios.Location = new System.Drawing.Point(438, 111);
             this.dtGridUsuarios.Name = "dtGridUsuarios";
