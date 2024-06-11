@@ -14,5 +14,11 @@ namespace model.entidades
         public int sala { get; set; }
         public bool estudante { get; set; }
         public string apelido { get; set; }
+
+        public Object[] Linha()
+        {
+            return new object[] { ID, nome, idade, sala, estudante, apelido };
+        }
     }
+    
 }

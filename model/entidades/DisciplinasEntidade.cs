@@ -12,5 +12,9 @@ namespace model.entidades
         public string nome { get; set; }
         public string sigla { get; set; }
         public bool ativo { get; set; }
+        public Object[] Linha()
+        {
+            return new object[] { ID, nome, sigla, ativo };
+        }
     }
 }

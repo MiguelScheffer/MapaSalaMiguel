@@ -18,5 +18,9 @@ namespace model.entidades
         public int NumeroCadeiras { get; set; }
         public bool Disponivel { get; set; }
 
+        public Object[] Linha()
+        {
+            return new object[] { Id,ano,periodo,NumeroCadeiras,NumeroComputador,IsLab,Disponivel };
+        }
     }
 }
