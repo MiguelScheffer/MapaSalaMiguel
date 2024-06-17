@@ -24,7 +24,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("321","DS","2024","Integral","16");
+            dados.Rows.Add("321","DS","2024","Integral","16", true);
             
 
         }
@@ -71,8 +71,18 @@ namespace MapaSalaMiguel.formularios
             txtboxId.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value.ToString();
             txtboxNome.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value.ToString();
             txtboxAno.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            txtboxPeriodo.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value.ToString();
-           
+            txtboxPeriodo.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            chkboxVagas.Checked = Convert.ToBoolean(dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value);
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value = txtboxAno.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value = txtboxPeriodo.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value = chkboxVagas.Checked;
+
         }
     }
 }

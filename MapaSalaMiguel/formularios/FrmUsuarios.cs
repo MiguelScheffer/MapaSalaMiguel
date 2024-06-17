@@ -24,7 +24,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("123","1234","6484","MIGUEL","SIM");
+            dados.Rows.Add("123","1234","6484","MIGUEL",true);
             
         }
 
@@ -67,6 +67,20 @@ namespace MapaSalaMiguel.formularios
         private void dtGridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
+            txtboxId.Text = dtGridUsuarios.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            txtboxLogin.Text = dtGridUsuarios.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtboxNome.Text = dtGridUsuarios.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtboxSenha.Text = dtGridUsuarios.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            chkboxAtivo.Checked = Convert.ToBoolean(dtGridUsuarios.Rows[LinhaSelecionada].Cells[4].Value);
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            dtGridUsuarios.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
+            dtGridUsuarios.Rows[LinhaSelecionada].Cells[1].Value = txtboxLogin.Text;
+            dtGridUsuarios.Rows[LinhaSelecionada].Cells[2].Value = txtboxNome.Text;
+            dtGridUsuarios.Rows[LinhaSelecionada].Cells[3].Value = txtboxSenha.Text;
+            dtGridUsuarios.Rows[LinhaSelecionada].Cells[4].Value = chkboxAtivo.Checked;
         }
     }
 }

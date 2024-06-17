@@ -24,7 +24,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("231","Matematica","Mat","Sim");
+            dados.Rows.Add("231","Matematica","Mat",true);
             
         }
 
@@ -67,7 +67,15 @@ namespace MapaSalaMiguel.formularios
             txtboxId.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[0].Value.ToString();
             txtboxNome.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[1].Value.ToString();
             txtboxSigla.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            
+            chkboxAtivo.Checked = Convert.ToBoolean(dtGridDisciplina.Rows[LinhaSelecionada].Cells[3].Value);
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            dtGridDisciplina.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
+            dtGridDisciplina.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
+            dtGridDisciplina.Rows[LinhaSelecionada].Cells[2].Value = txtboxSigla.Text;
+            dtGridDisciplina.Rows[LinhaSelecionada].Cells[3].Value = chkboxAtivo.Checked;
         }
     }
 }

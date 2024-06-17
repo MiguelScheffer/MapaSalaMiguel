@@ -80,6 +80,18 @@ namespace MapaSalaMiguel.formularios
         private void dtGridProfessor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
+            txtboxId.Text = dtGridProfessor.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            txtboxNome.Text = dtGridProfessor.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtboxApelido.Text = dtGridProfessor.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            dtGridProfessor.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
+            dtGridProfessor.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
+            dtGridProfessor.Rows[LinhaSelecionada].Cells[2].Value = txtboxApelido.Text;
+            
         }
     }
 }

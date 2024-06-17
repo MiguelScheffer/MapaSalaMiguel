@@ -177,6 +177,7 @@ namespace MapaSala.Formularios
             this.btnAtualizar.TabIndex = 45;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmSalas
             // 

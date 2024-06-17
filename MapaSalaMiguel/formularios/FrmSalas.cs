@@ -24,7 +24,7 @@ namespace MapaSala.Formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("B","YES","21","21","SIM");
+            dados.Rows.Add("B",true,"21","21",true);
             
         }
 
@@ -78,6 +78,20 @@ namespace MapaSala.Formularios
         private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
+            txtnomesala.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            numComputadores.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            numCadeiras.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value);
+            chkLaboratorio.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value);
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value = txtnomesala.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value = numCadeiras.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value = numComputadores.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value = chkDisponivel.Checked;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value = chkLaboratorio.Checked;
         }
     }
 }

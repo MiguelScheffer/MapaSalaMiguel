@@ -174,12 +174,13 @@ namespace MapaSalaMiguel.formularios
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(34, 322);
+            this.btnAtualizar.Location = new System.Drawing.Point(244, 348);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(71, 20);
             this.btnAtualizar.TabIndex = 45;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // FrmCursos
             // 
