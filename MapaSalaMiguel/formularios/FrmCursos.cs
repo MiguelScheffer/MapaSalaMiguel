@@ -24,7 +24,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("321","DS","2024","Integral","16", true);
+            dados.Rows.Add("321","DS","2024","Integral", true);
             
 
         }
