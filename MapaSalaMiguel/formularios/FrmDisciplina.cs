@@ -20,6 +20,12 @@ namespace MapaSalaMiguel.formularios
             InitializeComponent();
             dados = new DataTable();
             dtGridDisciplina.DataSource = dados;
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("231","Matematica","Mat","Sim");
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,7 +40,7 @@ namespace MapaSalaMiguel.formularios
             disciplina.nome = txtboxNome.Text;
             disciplina.sigla = txtboxSigla.Text;
             disciplina.ativo = chkboxAtivo.Checked;
-            dados.Add(disciplina);
+            dados.Rows.Add(disciplina.Linha());
             limpar();
         }
 
@@ -53,6 +59,15 @@ namespace MapaSalaMiguel.formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridDisciplina.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridDisciplina_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            txtboxId.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            txtboxNome.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtboxSigla.Text = dtGridDisciplina.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            
         }
     }
 }

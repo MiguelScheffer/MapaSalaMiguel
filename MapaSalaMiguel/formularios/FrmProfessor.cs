@@ -20,6 +20,13 @@ namespace MapaSalaMiguel.formularios
             InitializeComponent();
             dados = new DataTable();
             dtGridProfessor.DataSource = dados;
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("768","Fernando","Fram");
+            
+
 
         }
 
@@ -44,7 +51,7 @@ namespace MapaSalaMiguel.formularios
             professor.Id = Convert.ToInt32(txtboxId.Text);
             professor.Nome = txtboxNome.Text;
             professor.Apelido = txtboxApelido.Text; // apelido do professor
-            dados.Add(professor);
+            dados.Rows.Add(professor.Linha());
             limpar();
         }
 
@@ -68,6 +75,11 @@ namespace MapaSalaMiguel.formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridProfessor.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridProfessor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
         }
     }
 }

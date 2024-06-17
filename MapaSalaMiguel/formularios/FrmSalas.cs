@@ -20,6 +20,12 @@ namespace MapaSala.Formularios
             InitializeComponent();
             dados = new DataTable();
             dtGridSalas.DataSource = dados;
+            foreach (var atributos in typeof(SalasEntidades).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("B","YES","21","21","SIM");
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -46,7 +52,7 @@ namespace MapaSala.Formularios
             sala.NumeroComputador = Convert.ToInt32(numComputadores.Value);
             sala.Disponivel = chkDisponivel.Checked;
 
-            dados.Add(sala);
+            dados.Rows.Add(sala.Linha());
             limpar();
 
         }
@@ -67,6 +73,11 @@ namespace MapaSala.Formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridSalas.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
         }
     }
 }

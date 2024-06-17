@@ -43,6 +43,7 @@ namespace MapaSalaMiguel.formularios
             this.label5 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@ namespace MapaSalaMiguel.formularios
             this.dtGridCursos.RowTemplate.Height = 25;
             this.dtGridCursos.Size = new System.Drawing.Size(315, 215);
             this.dtGridCursos.TabIndex = 23;
+            this.dtGridCursos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridCursos_CellClick);
             // 
             // label4
             // 
@@ -170,11 +172,21 @@ namespace MapaSalaMiguel.formularios
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(34, 322);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(71, 20);
+            this.btnAtualizar.TabIndex = 45;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            // 
             // FrmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label5);
@@ -213,5 +225,6 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }

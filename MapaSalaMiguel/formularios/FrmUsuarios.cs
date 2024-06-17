@@ -20,6 +20,12 @@ namespace MapaSalaMiguel.formularios
             InitializeComponent();
             dados = new DataTable();
             dtGridUsuarios.DataSource = dados;
+            foreach (var atributos in typeof(UsuariosEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("123","1234","6484","MIGUEL","SIM");
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +41,7 @@ namespace MapaSalaMiguel.formularios
             usuario.Senha = txtboxSenha.Text;
             usuario.Nome = txtboxNome.Text;
             usuario.Ativo = chkboxAtivo.Checked;
-            dados.Add(usuario);
+            dados.Rows.Add(usuario.Linha());
             limpar();
         }
 
@@ -56,6 +62,11 @@ namespace MapaSalaMiguel.formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridUsuarios.Rows.RemoveAt(LinhaSelecionada);
+        }
+
+        private void dtGridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
         }
     }
 }

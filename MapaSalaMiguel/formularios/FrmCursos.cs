@@ -20,6 +20,13 @@ namespace MapaSalaMiguel.formularios
             InitializeComponent();
             dados = new DataTable();
             dtGridCursos.DataSource = dados;
+            foreach (var atributos in typeof(CursosEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("321","DS","2024","Integral","16");
+            
+
         }
 
         private void chkboxVagas_CheckedChanged(object sender, EventArgs e)
@@ -29,13 +36,13 @@ namespace MapaSalaMiguel.formularios
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalasEntidades cursos = new SalasEntidades();
+            CursosEntidade cursos = new CursosEntidade(); // arumar 
             cursos.Id = Convert.ToInt32(txtboxId.Text);
             cursos.Nome = txtboxNome.Text;
-            cursos.ano = Convert.ToInt32(txtboxAno.Text);
-            cursos.periodo = txtboxPeriodo.Text;
-            cursos.Disponivel = chkboxVagas.Checked;
-            dados.Add(cursos);
+            cursos.Ano = Convert.ToInt32(txtboxAno.Text);
+            cursos.Periodo = txtboxPeriodo.Text;
+            cursos.Vagas = chkboxVagas.Checked;
+            dados.Rows.Add(cursos.Linha());
             limpar();
         }
 
@@ -55,6 +62,17 @@ namespace MapaSalaMiguel.formularios
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             dtGridCursos.Rows.RemoveAt(LinhaSelecionada);
+
+        }
+
+        private void dtGridCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LinhaSelecionada = e.RowIndex;
+            txtboxId.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            txtboxNome.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            txtboxAno.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtboxPeriodo.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value.ToString();
+           
         }
     }
 }
