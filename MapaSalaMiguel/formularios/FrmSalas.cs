@@ -22,9 +22,10 @@ namespace MapaSala.Formularios
             dtGridSalas.DataSource = dados;
             foreach (var atributos in typeof(SalasEntidades).GetProperties())
             {
+                //return new object[] { Id, ano, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("B",true,"21","21",true);
+            dados.Rows.Add("123","2024","Integral","Sala MAKER","21",true,"12",true);
             
         }
 
@@ -46,11 +47,16 @@ namespace MapaSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             SalasEntidades sala = new SalasEntidades();
+            sala.Id = Convert.ToInt32(txtboxId.Text);
+            sala.ano = Convert.ToInt32(txtboxAno.Text);
+            sala.periodo = txtboxPeriodo.Text;
             sala.Nome = txtnomesala.Text;
-            sala.IsLab = chkLaboratorio.Checked;
+            
             sala.NumeroCadeiras = Convert.ToInt32(numCadeiras.Value);
-            sala.NumeroComputador = Convert.ToInt32(numComputadores.Value);
             sala.Disponivel = chkDisponivel.Checked;
+            sala.NumeroComputador = Convert.ToInt32(numComputadores.Value);
+            
+            sala.IsLab = chkLaboratorio.Checked;
 
             dados.Rows.Add(sala.Linha());
             limpar();
@@ -63,6 +69,9 @@ namespace MapaSala.Formularios
         }
         private void limpar()
         {
+            txtboxAno.Text = "";
+            txtboxId.Text = "";
+            txtboxPeriodo.Text = "";
             txtnomesala.Text = "";
             numCadeiras.Text = "";
             numComputadores.Text = "";
@@ -78,20 +87,27 @@ namespace MapaSala.Formularios
         private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            txtnomesala.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString();
-            numComputadores.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
-            numCadeiras.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value);
-            chkLaboratorio.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value);
+            txtboxId.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString();
+            txtboxAno.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            
+            txtboxPeriodo.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtnomesala.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            numComputadores.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value.ToString();
+            chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value);
+            numCadeiras.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[6].Value.ToString();
+            chkLaboratorio.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value);
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value = txtnomesala.Text;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value = numCadeiras.Text;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value = numComputadores.Text;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value = chkDisponivel.Checked;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value = chkLaboratorio.Checked;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value = txtboxAno.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value = txtboxPeriodo.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value = txtnomesala.Text;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value = numComputadores.Value.ToString(); 
+            dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value = chkDisponivel.Checked;
+            dtGridSalas.Rows[LinhaSelecionada].Cells[6].Value = numCadeiras.Value.ToString(); 
+            dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value = chkLaboratorio.Checked;
         }
     }
 }

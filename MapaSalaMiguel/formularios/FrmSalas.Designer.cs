@@ -43,6 +43,12 @@ namespace MapaSala.Formularios
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.txtboxAno = new System.Windows.Forms.TextBox();
+            this.txtboxId = new System.Windows.Forms.TextBox();
+            this.txtboxPeriodo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numComputadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCadeiras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).BeginInit();
@@ -124,7 +130,7 @@ namespace MapaSala.Formularios
             this.dtGridSalas.Location = new System.Drawing.Point(255, 96);
             this.dtGridSalas.Name = "dtGridSalas";
             this.dtGridSalas.RowTemplate.Height = 25;
-            this.dtGridSalas.Size = new System.Drawing.Size(315, 215);
+            this.dtGridSalas.Size = new System.Drawing.Size(419, 258);
             this.dtGridSalas.TabIndex = 10;
             this.dtGridSalas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridSalas_CellClick);
             // 
@@ -179,11 +185,65 @@ namespace MapaSala.Formularios
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // txtboxAno
+            // 
+            this.txtboxAno.Location = new System.Drawing.Point(12, 180);
+            this.txtboxAno.Name = "txtboxAno";
+            this.txtboxAno.Size = new System.Drawing.Size(100, 20);
+            this.txtboxAno.TabIndex = 46;
+            // 
+            // txtboxId
+            // 
+            this.txtboxId.Location = new System.Drawing.Point(12, 229);
+            this.txtboxId.Name = "txtboxId";
+            this.txtboxId.Size = new System.Drawing.Size(100, 20);
+            this.txtboxId.TabIndex = 47;
+            // 
+            // txtboxPeriodo
+            // 
+            this.txtboxPeriodo.Location = new System.Drawing.Point(12, 130);
+            this.txtboxPeriodo.Name = "txtboxPeriodo";
+            this.txtboxPeriodo.Size = new System.Drawing.Size(100, 20);
+            this.txtboxPeriodo.TabIndex = 48;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Periodo";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 164);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "Ano";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 213);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(16, 13);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "Id";
+            // 
             // frmSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtboxPeriodo);
+            this.Controls.Add(this.txtboxId);
+            this.Controls.Add(this.txtboxAno);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
@@ -224,5 +284,11 @@ namespace MapaSala.Formularios
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.TextBox txtboxAno;
+        private System.Windows.Forms.TextBox txtboxId;
+        private System.Windows.Forms.TextBox txtboxPeriodo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

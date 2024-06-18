@@ -20,7 +20,8 @@ namespace model.entidades
 
         public Object[] Linha()
         {
-            return new object[] { Id,ano,periodo,NumeroCadeiras,NumeroComputador,IsLab,Disponivel };
+            // dados.Rows.Add("123","2024","Integral","Sala MAKER","21",true,"12",true);
+            return new object[] { Id, ano, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
         }
     }
 }

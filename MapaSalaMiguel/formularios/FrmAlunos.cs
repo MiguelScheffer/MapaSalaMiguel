@@ -24,7 +24,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("123", "Miguel", "16", "5", "Goleiro", true);
+            dados.Rows.Add("123", "Miguel", "16", "5", true, "goleiro");
             
         }
        
@@ -77,10 +77,10 @@ namespace MapaSalaMiguel.formularios
             LinhaSelecionada = e.RowIndex;
             txtboxID.Text = dtGridAlunos.Rows[LinhaSelecionada].Cells[0].Value.ToString();
             txtboxNome.Text = dtGridAlunos.Rows[LinhaSelecionada].Cells[1].Value.ToString();
-            txtBoxApelido.Text = dtGridAlunos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            txtboxIdade.Text =  dtGridAlunos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
-            txtboxSala.Text =  dtGridAlunos.Rows[LinhaSelecionada].Cells[4].Value.ToString();
-            chkboxEstudante.Checked = Convert.ToBoolean(dtGridAlunos.Rows[LinhaSelecionada].Cells[5].Value);
+            txtBoxApelido.Text = dtGridAlunos.Rows[LinhaSelecionada].Cells[5].Value.ToString();
+            txtboxIdade.Text =  dtGridAlunos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtboxSala.Text =  dtGridAlunos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            chkboxEstudante.Checked = Convert.ToBoolean(dtGridAlunos.Rows[LinhaSelecionada].Cells[4].Value);
 
 
 
