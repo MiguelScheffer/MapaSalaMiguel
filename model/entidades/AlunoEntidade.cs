@@ -19,6 +19,6 @@ namespace model.entidades
         {
             return new object[] { ID, nome, idade, sala, estudante, apelido };
         }
-    }
-    
+    }//  dados.Rows.Add("123", "Miguel", "16", "5", true, "goleiro");
+
 }
