@@ -44,15 +44,18 @@ namespace MapaSala.DAO
             {
                 dt.Columns.Add(atributos.Name);
             }
-            if (leitura.Read())
+            if (leitura.HasRows()
             {
-                ProfessoresEntidade professores = new ProfessoresEntidade();
-                professores.Id = Convert.ToInt32(leitura[0]);
-                professores.Nome = leitura[1].ToString();
-                professores.Apelido = leitura[2].ToString();
-                dt.Rows.Add(professores.Linha());
-               
-                return dt;
+                while (leitura.Read())
+                {
+                    ProfessoresEntidade professores = new ProfessoresEntidade();
+                    professores.Id = Convert.ToInt32(leitura[0]);
+                    professores.Nome = leitura[1].ToString();
+                    professores.Apelido = leitura[2].ToString();
+                    dt.Rows.Add(professores.Linha());
+
+                    return dt;
+                }
             }
             return new DataTable();
 

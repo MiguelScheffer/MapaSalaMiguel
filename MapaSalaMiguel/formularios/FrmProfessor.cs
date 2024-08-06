@@ -56,6 +56,7 @@ namespace MapaSalaMiguel.formularios
             dados.Rows.Add(professor.Linha());
             ProfessorDAO dao = new ProfessorDAO();
             dao.Inserir(professor);
+            dtGridProfessor.DataSource = dao.obterProfessor();
             limpar();
         }
 
