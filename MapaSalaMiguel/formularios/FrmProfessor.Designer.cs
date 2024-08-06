@@ -175,6 +175,7 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.txtboxId);
             this.Name = "FrmProfessor";
             this.Text = "FrmProfessor";
+            this.Load += new System.EventHandler(this.FrmProfessor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProfessor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

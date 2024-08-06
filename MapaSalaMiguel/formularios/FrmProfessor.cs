@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MapaSala.DAO;
 
 namespace MapaSalaMiguel.formularios
 {
@@ -15,6 +16,7 @@ namespace MapaSalaMiguel.formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+        ProfessorDAO dao = new ProfessorDAO();
         public FrmProfessor()
         {
             InitializeComponent();
@@ -52,6 +54,8 @@ namespace MapaSalaMiguel.formularios
             professor.Nome = txtboxNome.Text;
             professor.Apelido = txtboxApelido.Text; // apelido do professor
             dados.Rows.Add(professor.Linha());
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Inserir(professor);
             limpar();
         }
 
@@ -92,6 +96,11 @@ namespace MapaSalaMiguel.formularios
             dtGridProfessor.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
             dtGridProfessor.Rows[LinhaSelecionada].Cells[2].Value = txtboxApelido.Text;
             
+        }
+
+        private void FrmProfessor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
