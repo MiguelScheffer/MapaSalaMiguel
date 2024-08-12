@@ -260,6 +260,7 @@ namespace MapaSala.Formularios
             this.Controls.Add(this.txtnomesala);
             this.Name = "frmSalas";
             this.Text = "frmSalas";
+            this.Load += new System.EventHandler(this.frmSalas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numComputadores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCadeiras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridSalas)).EndInit();

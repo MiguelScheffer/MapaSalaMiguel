@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MapaSala.DAO;
 namespace MapaSalaMiguel.formularios
 {
     public partial class FrmUsuarios : Form
     {
         DataTable dados;
         int LinhaSelecionada;
+        usuarioDAO dao = new usuarioDAO();
         public FrmUsuarios()
         {
             InitializeComponent();
@@ -81,6 +82,11 @@ namespace MapaSalaMiguel.formularios
             dtGridUsuarios.Rows[LinhaSelecionada].Cells[2].Value = txtboxNome.Text;
             dtGridUsuarios.Rows[LinhaSelecionada].Cells[3].Value = txtboxSenha.Text;
             dtGridUsuarios.Rows[LinhaSelecionada].Cells[4].Value = chkboxAtivo.Checked;
+        }
+
+        private void FrmUsuarios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

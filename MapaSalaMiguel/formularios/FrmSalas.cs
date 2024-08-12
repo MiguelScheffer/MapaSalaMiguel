@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MapaSala.DAO;
 
 namespace MapaSala.Formularios
 {
@@ -15,6 +16,7 @@ namespace MapaSala.Formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+        salasDAO dao = new salasDAO();
         public frmSalas()
         {
             InitializeComponent();
@@ -108,6 +110,11 @@ namespace MapaSala.Formularios
             dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value = chkDisponivel.Checked;
             dtGridSalas.Rows[LinhaSelecionada].Cells[6].Value = numCadeiras.Value.ToString(); 
             dtGridSalas.Rows[LinhaSelecionada].Cells[5].Value = chkLaboratorio.Checked;
+        }
+
+        private void frmSalas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

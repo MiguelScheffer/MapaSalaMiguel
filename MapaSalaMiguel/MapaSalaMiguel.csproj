@@ -50,6 +50,8 @@
     <Compile Include="DAO\cursosDAO.cs" />
     <Compile Include="DAO\disciplinasDAO.cs" />
     <Compile Include="DAO\ProfessorDAO.cs" />
+    <Compile Include="DAO\salasDAO.cs" />
+    <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
