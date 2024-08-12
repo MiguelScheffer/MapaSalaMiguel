@@ -44,7 +44,7 @@ namespace MapaSala.DAO
             {
                 dt.Columns.Add(atributos.Name);
             }
-            if (leitura.HasRows()
+            if (leitura.HasRows)
             {
                 while (leitura.Read())
                 {

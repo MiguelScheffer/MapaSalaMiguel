@@ -204,6 +204,7 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.dtGridCursos);
             this.Name = "FrmCursos";
             this.Text = "FrmCursos";
+            this.Load += new System.EventHandler(this.FrmCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

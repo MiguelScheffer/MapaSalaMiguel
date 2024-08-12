@@ -8,6 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MapaSala.DAO;
+    /*public partial class FrmProfessor : Form
+    {
+        DataTable dados;
+        int LinhaSelecionada;
+        ProfessorDAO dao = new ProfessorDAO();
+        public FrmProfessor()
+        {
+            InitializeComponent();
+            dados = new DataTable();
+            dtGridProfessor.DataSource = dados;
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            {
+                dados.Columns.Add(atributos.Name);
+            }
+            dados.Rows.Add("768","Fernando","Fram");
+            
+
+
+        }*/
 
 namespace MapaSalaMiguel.formularios
 {
@@ -15,6 +35,7 @@ namespace MapaSalaMiguel.formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+        alunosDAO dao = new alunosDAO();
         public FrmAlunos()
         {
             InitializeComponent();
@@ -96,6 +117,11 @@ namespace MapaSalaMiguel.formularios
             dtGridAlunos.Rows[LinhaSelecionada].Cells[3].Value = txtboxIdade.Text;
             dtGridAlunos.Rows[LinhaSelecionada].Cells[4].Value = txtboxSala.Text;
             dtGridAlunos.Rows[LinhaSelecionada].Cells[5].Value = chkboxEstudante.Checked;
+
+        }
+
+        private void FrmAlunos_Load(object sender, EventArgs e)
+        {
 
         }
     }

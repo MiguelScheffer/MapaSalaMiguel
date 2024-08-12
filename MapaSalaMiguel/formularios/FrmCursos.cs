@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MapaSala.DAO;
 
 namespace MapaSalaMiguel.formularios
 {
@@ -15,6 +16,7 @@ namespace MapaSalaMiguel.formularios
     {
         DataTable dados;
         int LinhaSelecionada;
+        cursosDAO dao = new cursosDAO();
         public FrmCursos()
         {
             InitializeComponent();
@@ -82,6 +84,11 @@ namespace MapaSalaMiguel.formularios
             dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value = txtboxAno.Text;
             dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value = txtboxPeriodo.Text;
             dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value = chkboxVagas.Checked;
+
+        }
+
+        private void FrmCursos_Load(object sender, EventArgs e)
+        {
 
         }
     }

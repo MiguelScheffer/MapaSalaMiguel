@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MapaSala.DAO;
 namespace MapaSalaMiguel.formularios
 {
     public partial class FrmDisciplina : Form
     {
         DataTable dados;
         int LinhaSelecionada;
+        disciplinasDAO dao = new disciplinasDAO();
         public FrmDisciplina()
         {
             InitializeComponent();
@@ -76,6 +77,11 @@ namespace MapaSalaMiguel.formularios
             dtGridDisciplina.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
             dtGridDisciplina.Rows[LinhaSelecionada].Cells[2].Value = txtboxSigla.Text;
             dtGridDisciplina.Rows[LinhaSelecionada].Cells[3].Value = chkboxAtivo.Checked;
+        }
+
+        private void FrmDisciplina_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
