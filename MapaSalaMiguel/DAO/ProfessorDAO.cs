@@ -60,8 +60,44 @@ namespace MapaSala.DAO
             return new DataTable();
 
         }
+        public DataTable pesquisar(string pesquisar)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            if (string.IsNullOrEmpty(pesquisar))
+            {
+                query = "SELECT Id,Nome,Apelido FROM Professores order by desc";
+            }
+            else
+            {
+                query = "SELECT Id,Nome,Apelido FROM Professores where Nome LIKE '%'" + pesquisar + "'%'Order by Id desc";
+            }
+            
+            SqlCommand comando = new SqlCommand(query, Conexao);
+            comando.ExecuteReader();
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    ProfessoresEntidade professores = new ProfessoresEntidade();
+                    professores.Id = Convert.ToInt32(leitura[0]);
+                    professores.Nome = leitura[1].ToString();
+                    professores.Apelido = leitura[2].ToString();
+                    dt.Rows.Add(professores.Linha());
 
+                    return dt;
+                }
+            }
+            return new DataTable();
+        }
 
+        
 
 
     }

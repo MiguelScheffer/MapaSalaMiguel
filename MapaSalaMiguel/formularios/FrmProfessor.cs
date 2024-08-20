@@ -103,5 +103,16 @@ namespace MapaSalaMiguel.formularios
         {
 
         }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridProfessor.DataSource = dao.pesquisar(txtpesquisa.Text);
+        }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            
+        }
     }
 }
