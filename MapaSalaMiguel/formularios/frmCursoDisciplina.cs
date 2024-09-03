@@ -34,7 +34,7 @@ namespace MapaSalaMiguel.formularios
 
         private void frmCursoDisciplina_Load(object sender, EventArgs e)
         {
-            2 6
+           
         }
     }
 }

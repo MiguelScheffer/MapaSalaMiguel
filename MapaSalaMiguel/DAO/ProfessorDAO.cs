@@ -91,11 +91,11 @@ namespace MapaSala.DAO
             Conexao.Open();
             if (string.IsNullOrEmpty(pesquisar))
             {
-                query = "SELECT Id,Nome,Apelido FROM Professores order by desc";
+                query = "SELECT Id,Nome,Apelido FROM Professores order by Id desc";
             }
             else
             {
-                query = "SELECT Id,Nome,Apelido FROM Professores where Nome LIKE '%'" + pesquisar + "'%'Order by Id desc";
+                query = "SELECT Id,Nome,Apelido FROM Professores where Nome LIKE '%" + pesquisar + "%'Order by Id desc";
             }
             
             SqlCommand comando = new SqlCommand(query, Conexao);

@@ -77,6 +77,12 @@ namespace MapaSalaMiguel.formularios
             // cbxCursos
             // 
             this.cbxCursos.FormattingEnabled = true;
+            this.cbxCursos.Items.AddRange(new object[] {
+            "DS- INTEGRAL",
+            "RH",
+            "ADM-INTEGRAL",
+            "DS-NOTURNO",
+            "IF"});
             this.cbxCursos.Location = new System.Drawing.Point(391, 110);
             this.cbxCursos.Name = "cbxCursos";
             this.cbxCursos.Size = new System.Drawing.Size(121, 21);

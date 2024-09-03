@@ -55,5 +55,11 @@ namespace MapaSalaMiguel
             FrmAlunos s = new FrmAlunos();
             s.ShowDialog();
         }
+
+        private void cursoDisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCursoDisciplina s = new frmCursoDisciplina();
+            s.ShowDialog();
+        }
     }
 }

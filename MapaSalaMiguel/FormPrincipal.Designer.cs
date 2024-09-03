@@ -36,6 +36,7 @@ namespace MapaSalaMiguel
             this.salaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursoDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@ namespace MapaSalaMiguel
             this.alunoToolStripMenuItem,
             this.salaToolStripMenuItem,
             this.disciplinaToolStripMenuItem,
-            this.cursosToolStripMenuItem});
+            this.cursosToolStripMenuItem,
+            this.cursoDisciplinaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -96,6 +98,13 @@ namespace MapaSalaMiguel
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
+            // cursoDisciplinaToolStripMenuItem
+            // 
+            this.cursoDisciplinaToolStripMenuItem.Name = "cursoDisciplinaToolStripMenuItem";
+            this.cursoDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.cursoDisciplinaToolStripMenuItem.Text = "CursoDisciplina";
+            this.cursoDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.cursoDisciplinaToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +130,7 @@ namespace MapaSalaMiguel
         private System.Windows.Forms.ToolStripMenuItem salaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disciplinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cursoDisciplinaToolStripMenuItem;
     }
 }
 
