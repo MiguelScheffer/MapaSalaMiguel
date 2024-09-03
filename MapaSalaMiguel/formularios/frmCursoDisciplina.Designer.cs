@@ -35,6 +35,8 @@ namespace MapaSalaMiguel.formularios
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCursos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboperiodo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtCursoDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@ namespace MapaSalaMiguel.formularios
             // dtCursoDisciplina
             // 
             this.dtCursoDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtCursoDisciplina.Location = new System.Drawing.Point(174, 209);
+            this.dtCursoDisciplina.Location = new System.Drawing.Point(124, 170);
             this.dtCursoDisciplina.Name = "dtCursoDisciplina";
             this.dtCursoDisciplina.Size = new System.Drawing.Size(453, 150);
             this.dtCursoDisciplina.TabIndex = 11;
@@ -89,11 +91,38 @@ namespace MapaSalaMiguel.formularios
             this.label1.TabIndex = 7;
             this.label1.Text = "Disciplinas";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(542, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Periodo";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // comboperiodo
+            // 
+            this.comboperiodo.FormattingEnabled = true;
+            this.comboperiodo.Items.AddRange(new object[] {
+            "1ºAno",
+            "2ºAno",
+            "3ºAno",
+            "1ºMódulo",
+            "2ºMódulo",
+            "3ºMódulo"});
+            this.comboperiodo.Location = new System.Drawing.Point(545, 110);
+            this.comboperiodo.Name = "comboperiodo";
+            this.comboperiodo.Size = new System.Drawing.Size(121, 21);
+            this.comboperiodo.TabIndex = 14;
+            // 
             // frmCursoDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboperiodo);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbDisciplinas);
             this.Controls.Add(this.dtCursoDisciplina);
             this.Controls.Add(this.btnAdicionar);
@@ -102,6 +131,7 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.label1);
             this.Name = "frmCursoDisciplina";
             this.Text = "frmCursoDisciplina";
+            this.Load += new System.EventHandler(this.frmCursoDisciplina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtCursoDisciplina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -116,5 +146,7 @@ namespace MapaSalaMiguel.formularios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxCursos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboperiodo;
     }
 }
