@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace model.entidades
 {
-    class CursoDisciplinaEntidade
+       public class CursoDisciplinaEntidade
     {
         public long Id { get; set; }
         public long DisciplinaId { get; set; }
