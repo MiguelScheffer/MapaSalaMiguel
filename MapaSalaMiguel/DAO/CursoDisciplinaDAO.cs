@@ -33,9 +33,9 @@ namespace MapaSala.DAO
             comando.Parameters.Add(parametro2);
             comando.Parameters.Add(parametro3);
             comando.ExecuteNonQuery();
-           
 
-        } 
+
+        }
         public DataTable ObterCursoDisciplina()
         {
             DataTable dt = new DataTable();
@@ -58,8 +58,13 @@ namespace MapaSala.DAO
                     p.NomeCurso = Leitura[3].ToString();
                     p.NomeDisciplina = Leitura[4].ToString();
                     dt.Rows.Add(p.Linha());
+
                 }
             }
             Conexao.Close();
             return dt;
+
+
         }
+    }
+}
