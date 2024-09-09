@@ -36,5 +36,11 @@ namespace MapaSalaMiguel.formularios
         {
            
         }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            CursoDisciplinaDAO cursoDisciplinaDAO = new CursoDisciplinaDAO();
+            CursoDisciplinaEntidade entidade = new CursoDisciplinaEntidade();
+        }
     }
 }
