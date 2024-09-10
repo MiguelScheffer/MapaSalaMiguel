@@ -25,7 +25,7 @@ namespace MapaSala.DAO
             string query = "Insert into Curso_Disciplina (Curso_Id , Disciplina_Id, Periodo) Values (@Curso_Id, @Disciplina_Id, @Periodo) ";
             SqlCommand comando = new SqlCommand(query, Conexao);
 
-            SqlParameter parametro1 = new SqlParameter("@Curso_Id", objeto.Id);
+            SqlParameter parametro1 = new SqlParameter("@Curso_Id", objeto.CursoId);
             SqlParameter parametro2 = new SqlParameter("@Disciplina_Id", objeto.DisciplinaId);
             SqlParameter parametro3 = new SqlParameter("@Periodo", objeto.Periodo);
 
@@ -33,6 +33,7 @@ namespace MapaSala.DAO
             comando.Parameters.Add(parametro2);
             comando.Parameters.Add(parametro3);
             comando.ExecuteNonQuery();
+            Conexao.Close();
 
 
         }
