@@ -106,6 +106,15 @@ namespace MapaSalaMiguel.formularios
             // comboperiodo
             // 
             this.comboperiodo.FormattingEnabled = true;
+            this.comboperiodo.Items.AddRange(new object[] {
+            "1ºMÓDULO INTEGRAL;",
+            "2ºMÓDULO INTEGRAL;",
+            "3ºMÓDULO INTEGRAL;",
+            "1ºMÓDULO TARDE;",
+            "2ºMÓDULO TARDE;",
+            "3ºMÓDULO TARDE;",
+            "1ºMÓDULO NOITE;",
+            "2ºMÓDULO NOITE;"});
             this.comboperiodo.Location = new System.Drawing.Point(545, 110);
             this.comboperiodo.Name = "comboperiodo";
             this.comboperiodo.Size = new System.Drawing.Size(121, 21);

@@ -17,6 +17,8 @@ namespace MapaSalaMiguel.formularios
     {
         disciplinasDAO disciplinasDAO = new disciplinasDAO();
         cursosDAO cursosDAO = new cursosDAO();
+        CursoDisciplinaDAO dao = new CursoDisciplinaDAO();
+
 
         private void AtualizarGrid(DataTable dados)
         {
@@ -32,6 +34,8 @@ namespace MapaSalaMiguel.formularios
             cbxCursos.DataSource = cursosDAO.PreencherComboBox();
             cbxCursos.DisplayMember = "Nome";
             cbxCursos.ValueMember = "Id";
+
+            AtualizarGrid(dao.ObterCursoDisciplina());
         }
 
         private void label3_Click(object sender, EventArgs e)
