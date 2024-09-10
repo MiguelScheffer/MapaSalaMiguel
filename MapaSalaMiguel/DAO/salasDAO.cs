@@ -79,11 +79,11 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Salas Order BY Id desc";
+            string query = "Select * From Salas Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             comando.ExecuteReader();
             SqlDataReader leitura = comando.ExecuteReader();
-            foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
+            foreach (var atributos in typeof(SalasEntidades).GetProperties())
             {
                 dt.Columns.Add(atributos.Name);
             }
@@ -102,10 +102,55 @@ namespace MapaSala.DAO
                     salas.Disponivel = Convert.ToBoolean(leitura[7]);
                     dt.Rows.Add(salas.Linha());
 
-                    return dt;
+                    
                 }
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
+        }
+        public DataTable pesquisar(string pesquisar)
+        {
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            string query = "";
+
+
+            if (string.IsNullOrEmpty(pesquisar))
+            {
+                query = "SELECT Id,ano,Nome,periodo,NumeroComputador,Islab,NumeroCadeiras,Disponivel FROM Salas order by Id desc";
+            }
+            else
+            {
+                query = "SELECT Id,ano,Nome,periodo,NumeroComputador,Islab,NumeroCadeiras,Disponivel FROM Salas where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
+            }
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(SalasEntidades).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    SalasEntidades salas = new SalasEntidades();
+                    salas.Id = Convert.ToInt32(leitura[0]);
+                    salas.ano = Convert.ToInt32(leitura[1]);
+                    salas.Nome = leitura[2].ToString();
+                    salas.periodo = leitura[3].ToString();
+                    salas.NumeroComputador = Convert.ToInt32(leitura[4]);
+                    salas.IsLab = Convert.ToBoolean(leitura[5]);
+                    salas.NumeroCadeiras = Convert.ToInt32(leitura[6]);
+                    salas.Disponivel = Convert.ToBoolean(leitura[7]);
+                    dt.Rows.Add(salas.Linha());
+
+
+                }
+            }
+            Conexao.Close();
+            return dt;
 
         }
 

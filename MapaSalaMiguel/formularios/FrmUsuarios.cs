@@ -25,8 +25,8 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("123","1234","6484","MIGUEL",true);
-            
+            dtGridUsuarios.DataSource = dao.obterusuario();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -87,6 +87,11 @@ namespace MapaSalaMiguel.formularios
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridUsuarios.DataSource = dao.pesquisar(txtpesquisa.Text);
         }
     }
 }

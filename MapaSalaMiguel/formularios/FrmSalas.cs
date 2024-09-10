@@ -27,8 +27,8 @@ namespace MapaSala.Formularios
                 //return new object[] { Id, ano, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("123","2024","Integral","Sala MAKER","21",true,"12",true);
-            
+            dtGridSalas.DataSource = dao.obtersala();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -113,6 +113,17 @@ namespace MapaSala.Formularios
         }
 
         private void frmSalas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridSalas.DataSource = dao.pesquisar(txtpesquisa.Text);
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

@@ -71,7 +71,7 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Usuarios Order BY Id desc";
+            string query = "Select * From Usuarios Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             comando.ExecuteReader();
             SqlDataReader leitura = comando.ExecuteReader();
@@ -91,10 +91,54 @@ namespace MapaSala.DAO
                     usuarios.Ativo = Convert.ToBoolean(leitura[4]);
                     dt.Rows.Add(usuarios.Linha());
 
-                    return dt;
+                   
+                }
+            
+            }
+            Conexao.Close();
+            return dt;
+
+        }
+        public DataTable pesquisar(string pesquisar)
+        {
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            string query = "";
+
+
+            if (string.IsNullOrEmpty(pesquisar))
+            {
+                query = "SELECT Id,Nome,Senha,Login,Ativo FROM Usuarios order by Id desc";
+            }
+            else
+            {
+                query = "SELECT Id,Nome,Senha,Login,Ativo FROM Usuarios where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
+            }
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(UsuariosEntidade).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    UsuariosEntidade usuarios = new UsuariosEntidade();
+                    usuarios.Id = Convert.ToInt32(leitura[0]);
+                    usuarios.Nome = leitura[1].ToString();
+                    usuarios.Senha = leitura[2].ToString();
+                    usuarios.Login = leitura[3].ToString();
+                    usuarios.Ativo = Convert.ToBoolean(leitura[4]);
+                    dt.Rows.Add(usuarios.Linha());
+
+
                 }
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
 
         }
 

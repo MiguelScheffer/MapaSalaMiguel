@@ -243,6 +243,7 @@ namespace MapaSala.Formularios
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 53;
             this.label8.Text = "Pesquisa";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtpesquisa
             // 
@@ -250,6 +251,7 @@ namespace MapaSala.Formularios
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(186, 20);
             this.txtpesquisa.TabIndex = 52;
+            this.txtpesquisa.TextChanged += new System.EventHandler(this.txtpesquisa_TextChanged);
             // 
             // frmSalas
             // 

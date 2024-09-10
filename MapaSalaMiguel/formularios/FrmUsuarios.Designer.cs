@@ -201,6 +201,7 @@ namespace MapaSalaMiguel.formularios
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(186, 20);
             this.txtpesquisa.TabIndex = 48;
+            this.txtpesquisa.TextChanged += new System.EventHandler(this.txtpesquisa_TextChanged);
             // 
             // FrmUsuarios
             // 
