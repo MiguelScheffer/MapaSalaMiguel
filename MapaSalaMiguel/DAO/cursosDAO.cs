@@ -42,7 +42,7 @@ namespace MapaSala.DAO
         {
             DataTable dataTable = new DataTable();
 
-            string query = "SELECT Id, Nome FROM Salas";
+            string query = "SELECT Id, Nome FROM Cursos";
 
             using (SqlConnection connection = new SqlConnection(LinhaConexao))
             {
