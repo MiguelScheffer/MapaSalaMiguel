@@ -44,7 +44,7 @@ namespace MapaSalaMiguel.formularios
             CursoDisciplinaEntidade entidade = new CursoDisciplinaEntidade();
             entidade.CursoId = Convert.ToInt32(cbxCursos.SelectedValue);
             entidade.DisciplinaId = Convert.ToInt32(cbDisciplinas.SelectedValue);
-            entidade.Periodo = comboperiodo.SelectedValue.ToString();
+            entidade.Periodo = comboperiodo.SelectedItem.ToString();
             cursoDisciplinaDAO.Inserir(entidade);
         }
         /*      public long Id { get; set; }
