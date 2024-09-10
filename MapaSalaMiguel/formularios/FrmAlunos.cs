@@ -45,9 +45,10 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("123", "Miguel", "16", "5", true, "goleiro");
-            
+            dtGridAlunos.DataSource = dao.obteralunos();
+
         }
+        
        
 
 
@@ -121,6 +122,16 @@ namespace MapaSalaMiguel.formularios
         }
 
         private void FrmAlunos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridAlunos.DataSource = dao.pesquisar(txtpesquisa.Text);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

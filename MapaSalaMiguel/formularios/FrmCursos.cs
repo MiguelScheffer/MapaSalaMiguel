@@ -26,8 +26,8 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("321","DS","2024","Integral", true);
-            
+            dtGridCursos.DataSource = dao.obtercurso();
+
 
         }
 
@@ -88,6 +88,16 @@ namespace MapaSalaMiguel.formularios
         }
 
         private void FrmCursos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridCursos.DataSource = dao.pesquisar(txtpesquisa.Text);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

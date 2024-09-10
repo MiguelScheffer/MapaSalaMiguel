@@ -175,6 +175,7 @@ namespace MapaSalaMiguel.formularios
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 47;
             this.label5.Text = "Pesquisa";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // FrmProfessor
             // 

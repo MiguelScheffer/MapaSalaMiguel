@@ -66,7 +66,7 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Cursos Order BY Id desc";
+            string query = "Select * From Cursos Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             comando.ExecuteReader();
             SqlDataReader leitura = comando.ExecuteReader();
@@ -86,12 +86,60 @@ namespace MapaSala.DAO
                     curso.Vagas = Convert.ToBoolean(leitura[4]);
                     dt.Rows.Add(curso.Linha());
 
-                    return dt;
+                    
                 }
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
 
         }
+        public DataTable pesquisar(string pesquisar)
+        {
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            string query = "";
+
+
+            if (string.IsNullOrEmpty(pesquisar))
+            {
+                query = "SELECT Id,Ano,Nome, Periodo, Vagas FROM Cursos order by Id desc";
+            }
+            else
+            {
+                query = "SELECT Id,Ano,Nome, Periodo, Vagas FROM Cursos where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
+            }
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(CursosEntidade).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    CursosEntidade cursos = new CursosEntidade();
+                    cursos.Id = Convert.ToInt32(leitura[0]);
+                    cursos.Ano = Convert.ToInt32(leitura[1]);
+                    cursos.Nome = leitura[2].ToString();
+                    cursos.Periodo = leitura[3].ToString();
+                    cursos.Vagas = Convert.ToBoolean(leitura[4]);
+                    dt.Rows.Add(cursos.Linha());
+
+
+                }
+            }
+            Conexao.Close();
+            return dt;
+
+        }
+        /*  public int Id { get; set; }
+        public int Ano { get; set; }
+        public string Nome { get; set; }
+        public string Periodo { get; set; }
+        public bool Vagas { get; set; }*/
 
 
 

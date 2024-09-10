@@ -69,7 +69,7 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Disciplinas Order BY Id desc";
+            string query = "Select * From Disciplinas Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
             comando.ExecuteReader();
             SqlDataReader leitura = comando.ExecuteReader();
@@ -88,12 +88,58 @@ namespace MapaSala.DAO
                     disciplinas.ativo = Convert.ToBoolean(leitura[3]);
                     dt.Rows.Add(disciplinas.Linha());
 
-                    return dt;
+                    
                 }
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
 
         }
+        public DataTable pesquisar(string pesquisar)
+        {
+            DataTable dt = new DataTable();
+            Conexao.Open();
+            string query = "";
+
+
+            if (string.IsNullOrEmpty(pesquisar))
+            {
+                query = "SELECT ID,nome,sigla,ativo FROM Aluno order by Id desc";
+            }
+            else
+            {
+                query = "SELECT Id,nome,sigla,ativo FROM Aluno where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
+            }
+
+            SqlCommand comando = new SqlCommand(query, Conexao);
+
+            SqlDataReader leitura = comando.ExecuteReader();
+            foreach (var atributos in typeof(DisciplinasEntidade).GetProperties())
+            {
+                dt.Columns.Add(atributos.Name);
+            }
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    DisciplinasEntidade disciplinas = new DisciplinasEntidade();
+                    disciplinas.ID = Convert.ToInt32(leitura[0]);
+                    disciplinas.nome = leitura[1].ToString();
+                    disciplinas.sigla = leitura[2].ToString();
+                    disciplinas.ativo = Convert.ToBoolean(leitura[3]);
+                    dt.Rows.Add(disciplinas.Linha());
+
+
+                }
+            }
+            Conexao.Close();
+            return dt;
+
+        }
+        /*     public int ID { get; set; }
+        public string nome { get; set; }
+        public string sigla { get; set; }
+        public bool ativo { get; set; }*/
 
 
 

@@ -25,8 +25,8 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("231","Matematica","Mat",true);
-            
+            dtGridDisciplina.DataSource = dao.obterDisciplina();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,6 +80,16 @@ namespace MapaSalaMiguel.formularios
         }
 
         private void FrmDisciplina_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dtGridDisciplina.DataSource = dao.pesquisar(txtpesquisa.Text);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }
