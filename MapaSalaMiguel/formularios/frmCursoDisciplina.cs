@@ -12,10 +12,16 @@ using System.Windows.Forms;
 
 namespace MapaSalaMiguel.formularios
 {
+    
     public partial class frmCursoDisciplina : Form
     {
         disciplinasDAO disciplinasDAO = new disciplinasDAO();
         cursosDAO cursosDAO = new cursosDAO();
+
+        private void AtualizarGrid(DataTable dados)
+        {
+            dtCursoDisciplina.DataSource = dados;
+        }
         public frmCursoDisciplina()
         {
             InitializeComponent();
@@ -47,14 +53,19 @@ namespace MapaSalaMiguel.formularios
             entidade.Periodo = comboperiodo.SelectedItem.ToString();
             cursoDisciplinaDAO.Inserir(entidade);
         }
-        /*      public long Id { get; set; }
-        public long DisciplinaId { get; set; }
-        public long CursoId { get; set; }
-        public string Periodo { get; set; }
-        public string NomeDisciplina { get; set; }
-        public string NomeCurso { get; set; }
-        public object[] Linha()
+
+        private void cbDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            return new object[] { Id, NomeCurso, NomeDisciplina };*/
+
+        }
+        /*      public long Id { get; set; }
+public long DisciplinaId { get; set; }
+public long CursoId { get; set; }
+public string Periodo { get; set; }
+public string NomeDisciplina { get; set; }
+public string NomeCurso { get; set; }
+public object[] Linha()
+{
+   return new object[] { Id, NomeCurso, NomeDisciplina };*/
     }
 }

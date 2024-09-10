@@ -47,6 +47,7 @@ namespace MapaSalaMiguel.formularios
             this.cbDisciplinas.Name = "cbDisciplinas";
             this.cbDisciplinas.Size = new System.Drawing.Size(121, 21);
             this.cbDisciplinas.TabIndex = 12;
+            this.cbDisciplinas.SelectedIndexChanged += new System.EventHandler(this.cbDisciplinas_SelectedIndexChanged);
             // 
             // dtCursoDisciplina
             // 
@@ -78,12 +79,6 @@ namespace MapaSalaMiguel.formularios
             // cbxCursos
             // 
             this.cbxCursos.FormattingEnabled = true;
-            this.cbxCursos.Items.AddRange(new object[] {
-            "DS- INTEGRAL",
-            "RH",
-            "ADM-INTEGRAL",
-            "DS-NOTURNO",
-            "IF"});
             this.cbxCursos.Location = new System.Drawing.Point(391, 110);
             this.cbxCursos.Name = "cbxCursos";
             this.cbxCursos.Size = new System.Drawing.Size(121, 21);
@@ -111,13 +106,6 @@ namespace MapaSalaMiguel.formularios
             // comboperiodo
             // 
             this.comboperiodo.FormattingEnabled = true;
-            this.comboperiodo.Items.AddRange(new object[] {
-            "1ºAno",
-            "2ºAno",
-            "3ºAno",
-            "1ºMódulo",
-            "2ºMódulo",
-            "3ºMódulo"});
             this.comboperiodo.Location = new System.Drawing.Point(545, 110);
             this.comboperiodo.Name = "comboperiodo";
             this.comboperiodo.Size = new System.Drawing.Size(121, 21);
