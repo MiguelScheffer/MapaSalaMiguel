@@ -26,8 +26,8 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dados.Rows.Add("768","Fernando","Fram");
-            
+
+            dtGridProfessor.DataSource = dao.obterProfessor();
 
 
         }
@@ -50,7 +50,7 @@ namespace MapaSalaMiguel.formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             ProfessoresEntidade professor = new ProfessoresEntidade();
-            professor.Id = Convert.ToInt32(txtboxId.Text);
+            //professor.Id = Convert.ToInt32(txtboxId.Text);
             professor.Nome = txtboxNome.Text;
             professor.Apelido = txtboxApelido.Text; // apelido do professor
             dados.Rows.Add(professor.Linha());

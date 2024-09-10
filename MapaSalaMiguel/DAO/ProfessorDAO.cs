@@ -60,9 +60,9 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "Select From Professores Order BY Id desc";
+            string query = "Select * From Professores Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.ExecuteReader();
+            
             SqlDataReader leitura = comando.ExecuteReader();
             foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
             {
@@ -78,28 +78,32 @@ namespace MapaSala.DAO
                     professores.Apelido = leitura[2].ToString();
                     dt.Rows.Add(professores.Linha());
 
-                    return dt;
+                   
                 }
+                
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
 
         }
         public DataTable pesquisar(string pesquisar)
         {
-            string query;
             DataTable dt = new DataTable();
             Conexao.Open();
+            string query = "";
+            
+            
             if (string.IsNullOrEmpty(pesquisar))
             {
                 query = "SELECT Id,Nome,Apelido FROM Professores order by Id desc";
             }
             else
             {
-                query = "SELECT Id,Nome,Apelido FROM Professores where Nome LIKE '%" + pesquisar + "%'Order by Id desc";
+                query = "SELECT Id,Nome,Apelido FROM Professores where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
             }
             
             SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.ExecuteReader();
+            
             SqlDataReader leitura = comando.ExecuteReader();
             foreach (var atributos in typeof(ProfessoresEntidade).GetProperties())
             {
@@ -115,10 +119,12 @@ namespace MapaSala.DAO
                     professores.Apelido = leitura[2].ToString();
                     dt.Rows.Add(professores.Linha());
 
-                    return dt;
+                   
                 }
             }
-            return new DataTable();
+            Conexao.Close();
+            return dt;
+            
         }
 
         
