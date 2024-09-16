@@ -1,171 +1,149 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Sql;
+using System.Data;
 using System.Data.SqlClient;
 using model.entidades;
-using System.Data;
 
 namespace MapaSala.DAO
 {
     public class salasDAO
     {
-        // "LS05MPF" servidor em rede; "Localhost" próprio PC
-        private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
-        private SqlConnection Conexao;
-        public salasDAO()
-        {
-            Conexao = new SqlConnection(LinhaConexao);
-        }
+        private readonly string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
 
         public void Inserir(SalasEntidades salas)
         {
-            Conexao.Open();
-            string query = "Insert into Salas (Nome, Ano, Periodo, npcs, ncadeiras ) Values (@nome,@ano, @periodo, @npcs, @ncadeiras)";
-            SqlCommand comando = new SqlCommand(query, Conexao);
-            SqlParameter parametro1 = new SqlParameter("@nome", salas.Nome);
-            SqlParameter parametro2 = new SqlParameter("@ano", salas.ano);
-            SqlParameter parametro3 = new SqlParameter("@id", salas.Id);
-            SqlParameter parametro4 = new SqlParameter("@periodo", salas.periodo);
-            SqlParameter parametro5 = new SqlParameter("@npcs", salas.NumeroComputador);
-            SqlParameter parametro6 = new SqlParameter("@ncadeiras", salas.NumeroCadeiras);
-            SqlParameter parametro7 = new SqlParameter("@disp", salas.Disponivel);
-            comando.Parameters.Add(parametro1);
-            comando.Parameters.Add(parametro2);
-            comando.Parameters.Add(parametro3);
-            comando.Parameters.Add(parametro4);
-            comando.Parameters.Add(parametro5);
-            comando.Parameters.Add(parametro6);
-            comando.Parameters.Add(parametro7);
-            comando.ExecuteNonQuery();
-            Conexao.Close();
-            /* public int Id { get; set; }
-        public int ano { get; set; }
-        
-        public string periodo { get; set; }
-        public string Nome { get; set; }
-        public int NumeroComputador { get; set; }
-        public bool IsLab { get; set; }
-        public int NumeroCadeiras { get; set; }
-        public bool Disponivel { get; set; }*/
+            using (var conexao = new SqlConnection(LinhaConexao))
+            {
+                conexao.Open();
+                string query = "INSERT INTO Salas (Nome, Ano, Periodo, npcs, ncadeiras, Disponivel) VALUES (@nome, @ano, @periodo, @npcs, @ncadeiras, @disp)";
+
+                using (var comando = new SqlCommand(query, conexao))
+                {
+                    comando.Parameters.AddWithValue("@nome", salas.Nome);
+                    comando.Parameters.AddWithValue("@ano", salas.ano);
+                    comando.Parameters.AddWithValue("@periodo", salas.periodo);
+                    comando.Parameters.AddWithValue("@npcs", salas.NumeroComputador);
+                    comando.Parameters.AddWithValue("@ncadeiras", salas.NumeroCadeiras);
+                    comando.Parameters.AddWithValue("@disp", salas.Disponivel);
+
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
+
         public DataTable PreencherComboBox()
         {
             DataTable dataTable = new DataTable();
-
             string query = "SELECT Id, Nome FROM Salas";
 
-            using (SqlConnection connection = new SqlConnection(LinhaConexao))
+            using (var connection = new SqlConnection(LinhaConexao))
             {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-
-                try
+                using (var adapter = new SqlDataAdapter(query, connection))
                 {
-                    // Preenche o DataTable com os dados da consulta
-                    adapter.Fill(dataTable);
-                }
-                catch (Exception ex)
-                {
-                    // Lida com erros, se necessário
-                    throw new Exception("Erro ao acessar os dados: " + ex.Message);
+                    try
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Erro ao acessar os dados: " + ex.Message);
+                    }
                 }
             }
 
             return dataTable;
         }
+
         public DataTable obtersala()
         {
             DataTable dt = new DataTable();
-            Conexao.Open();
-            string query = "Select * From Salas Order BY Id desc";
-            SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.ExecuteReader();
-            SqlDataReader leitura = comando.ExecuteReader();
-            foreach (var atributos in typeof(SalasEntidades).GetProperties())
-            {
-                dt.Columns.Add(atributos.Name);
-            }
-            if (leitura.HasRows)
-            {
-                while (leitura.Read())
-                {
-                    SalasEntidades salas = new SalasEntidades();
-                    salas.Id = Convert.ToInt32(leitura[0]);
-                    salas.ano = Convert.ToInt32(leitura[1]);
-                    salas.Nome = leitura[2].ToString();
-                    salas.periodo = leitura[3].ToString();
-                    salas.NumeroComputador = Convert.ToInt32(leitura[4]);
-                    salas.IsLab = Convert.ToBoolean(leitura[5]);
-                    salas.NumeroCadeiras = Convert.ToInt32(leitura[6]);
-                    salas.Disponivel = Convert.ToBoolean(leitura[7]);
-                    dt.Rows.Add(salas.Linha());
+            string query = "SELECT * FROM Salas ORDER BY Id DESC";
 
-                    
+            using (var conexao = new SqlConnection(LinhaConexao))
+            {
+                conexao.Open();
+                using (var comando = new SqlCommand(query, conexao))
+                {
+                    using (var leitura = comando.ExecuteReader())
+                    {
+                        foreach (var atributos in typeof(SalasEntidades).GetProperties())
+                        {
+                            dt.Columns.Add(atributos.Name);
+                        }
+
+                        if (leitura.HasRows)
+                        {
+                            while (leitura.Read())
+                            {
+                                SalasEntidades salas = new SalasEntidades
+                                {
+                                    Id = Convert.ToInt32(leitura["Id"]),
+                                    ano = Convert.ToInt32(leitura["ano"]),
+                                    Nome = leitura["Nome"].ToString(),
+                                    periodo = leitura["periodo"].ToString(),
+                                    NumeroComputador = Convert.ToInt32(leitura["NumeroComputador"]),
+                                    IsLab = Convert.ToBoolean(leitura["IsLab"]),
+                                    NumeroCadeiras = Convert.ToInt32(leitura["NumeroCadeiras"]),
+                                    Disponivel = Convert.ToBoolean(leitura["Disponivel"])
+                                };
+
+                                dt.Rows.Add(salas.Linha());
+                            }
+                        }
+                    }
                 }
             }
-            Conexao.Close();
+
             return dt;
         }
+
         public DataTable pesquisar(string pesquisar)
         {
             DataTable dt = new DataTable();
-            Conexao.Open();
-            string query = "";
+            string query = string.IsNullOrEmpty(pesquisar) ?
+                "SELECT Id, ano, Nome, periodo, NumeroComputador, IsLab, NumeroCadeiras, Disponivel FROM Salas ORDER BY Id DESC" :
+                "SELECT Id, ano, Nome, periodo, NumeroComputador, IsLab, NumeroCadeiras, Disponivel FROM Salas WHERE Nome LIKE @pesquisar ORDER BY Id DESC";
 
-
-            if (string.IsNullOrEmpty(pesquisar))
+            using (var conexao = new SqlConnection(LinhaConexao))
             {
-                query = "SELECT Id,ano,Nome,periodo,NumeroComputador,Islab,NumeroCadeiras,Disponivel FROM Salas order by Id desc";
-            }
-            else
-            {
-                query = "SELECT Id,ano,Nome,periodo,NumeroComputador,Islab,NumeroCadeiras,Disponivel FROM Salas where Nome LIKE '%" + pesquisar + "%' Order by Id desc";
-            }
-
-            SqlCommand comando = new SqlCommand(query, Conexao);
-
-            SqlDataReader leitura = comando.ExecuteReader();
-            foreach (var atributos in typeof(SalasEntidades).GetProperties())
-            {
-                dt.Columns.Add(atributos.Name);
-            }
-            if (leitura.HasRows)
-            {
-                while (leitura.Read())
+                conexao.Open();
+                using (var comando = new SqlCommand(query, conexao))
                 {
-                    SalasEntidades salas = new SalasEntidades();
-                    salas.Id = Convert.ToInt32(leitura[0]);
-                    salas.ano = Convert.ToInt32(leitura[1]);
-                    salas.Nome = leitura[2].ToString();
-                    salas.periodo = leitura[3].ToString();
-                    salas.NumeroComputador = Convert.ToInt32(leitura[4]);
-                    salas.IsLab = Convert.ToBoolean(leitura[5]);
-                    salas.NumeroCadeiras = Convert.ToInt32(leitura[6]);
-                    salas.Disponivel = Convert.ToBoolean(leitura[7]);
-                    dt.Rows.Add(salas.Linha());
+                    if (!string.IsNullOrEmpty(pesquisar))
+                    {
+                        comando.Parameters.AddWithValue("@pesquisar", "%" + pesquisar + "%");
+                    }
 
+                    using (var leitura = comando.ExecuteReader())
+                    {
+                        foreach (var atributos in typeof(SalasEntidades).GetProperties())
+                        {
+                            dt.Columns.Add(atributos.Name);
+                        }
 
+                        if (leitura.HasRows)
+                        {
+                            while (leitura.Read())
+                            {
+                                SalasEntidades salas = new SalasEntidades
+                                {
+                                    Id = Convert.ToInt32(leitura["Id"]),
+                                    ano = Convert.ToInt32(leitura["ano"]),
+                                    Nome = leitura["Nome"].ToString(),
+                                    periodo = leitura["periodo"].ToString(),
+                                    NumeroComputador = Convert.ToInt32(leitura["NumeroComputador"]),
+                                    IsLab = Convert.ToBoolean(leitura["IsLab"]),
+                                    NumeroCadeiras = Convert.ToInt32(leitura["NumeroCadeiras"]),
+                                    Disponivel = Convert.ToBoolean(leitura["Disponivel"])
+                                };
+
+                                dt.Rows.Add(salas.Linha());
+                            }
+                        }
+                    }
                 }
             }
-            Conexao.Close();
+
             return dt;
-
         }
-
-
-
-
     }
 }
-/* public int Id { get; set; }
-        public int ano { get; set; }
-        
-        public string periodo { get; set; }
-        public string Nome { get; set; }
-        public int NumeroComputador { get; set; }
-        public bool IsLab { get; set; }
-        public int NumeroCadeiras { get; set; }
-        public bool Disponivel { get; set; }*/
-
