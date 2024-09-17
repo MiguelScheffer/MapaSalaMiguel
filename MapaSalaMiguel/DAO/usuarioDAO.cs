@@ -73,7 +73,7 @@ namespace MapaSala.DAO
             Conexao.Open();
             string query = "Select * From Usuarios Order BY Id desc";
             SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.ExecuteReader();
+            
             SqlDataReader leitura = comando.ExecuteReader();
             foreach (var atributos in typeof(UsuariosEntidade).GetProperties())
             {

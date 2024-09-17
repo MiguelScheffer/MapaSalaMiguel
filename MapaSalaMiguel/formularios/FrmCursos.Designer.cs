@@ -29,17 +29,17 @@ namespace MapaSalaMiguel.formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.chkboxVagas = new System.Windows.Forms.CheckBox();
+            this.chkboxativo = new System.Windows.Forms.CheckBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dtGridCursos = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.txtboxNome = new System.Windows.Forms.TextBox();
-            this.txtboxAno = new System.Windows.Forms.TextBox();
-            this.txtboxPeriodo = new System.Windows.Forms.TextBox();
+            this.txtboxturno = new System.Windows.Forms.TextBox();
+            this.txtboxsigla = new System.Windows.Forms.TextBox();
             this.txtboxId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Turno = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -49,16 +49,16 @@ namespace MapaSalaMiguel.formularios
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCursos)).BeginInit();
             this.SuspendLayout();
             // 
-            // chkboxVagas
+            // chkboxativo
             // 
-            this.chkboxVagas.AutoSize = true;
-            this.chkboxVagas.Location = new System.Drawing.Point(114, 286);
-            this.chkboxVagas.Name = "chkboxVagas";
-            this.chkboxVagas.Size = new System.Drawing.Size(56, 17);
-            this.chkboxVagas.TabIndex = 25;
-            this.chkboxVagas.Text = "Vagas";
-            this.chkboxVagas.UseVisualStyleBackColor = true;
-            this.chkboxVagas.CheckedChanged += new System.EventHandler(this.chkboxVagas_CheckedChanged);
+            this.chkboxativo.AutoSize = true;
+            this.chkboxativo.Location = new System.Drawing.Point(114, 286);
+            this.chkboxativo.Name = "chkboxativo";
+            this.chkboxativo.Size = new System.Drawing.Size(50, 17);
+            this.chkboxativo.TabIndex = 25;
+            this.chkboxativo.Text = "Ativo";
+            this.chkboxativo.UseVisualStyleBackColor = true;
+            this.chkboxativo.CheckedChanged += new System.EventHandler(this.chkboxVagas_CheckedChanged);
             // 
             // btnSalvar
             // 
@@ -97,19 +97,19 @@ namespace MapaSalaMiguel.formularios
             this.txtboxNome.Size = new System.Drawing.Size(100, 20);
             this.txtboxNome.TabIndex = 27;
             // 
-            // txtboxAno
+            // txtboxturno
             // 
-            this.txtboxAno.Location = new System.Drawing.Point(111, 206);
-            this.txtboxAno.Name = "txtboxAno";
-            this.txtboxAno.Size = new System.Drawing.Size(100, 20);
-            this.txtboxAno.TabIndex = 28;
+            this.txtboxturno.Location = new System.Drawing.Point(111, 206);
+            this.txtboxturno.Name = "txtboxturno";
+            this.txtboxturno.Size = new System.Drawing.Size(100, 20);
+            this.txtboxturno.TabIndex = 28;
             // 
-            // txtboxPeriodo
+            // txtboxsigla
             // 
-            this.txtboxPeriodo.Location = new System.Drawing.Point(111, 245);
-            this.txtboxPeriodo.Name = "txtboxPeriodo";
-            this.txtboxPeriodo.Size = new System.Drawing.Size(100, 20);
-            this.txtboxPeriodo.TabIndex = 29;
+            this.txtboxsigla.Location = new System.Drawing.Point(111, 245);
+            this.txtboxsigla.Name = "txtboxsigla";
+            this.txtboxsigla.Size = new System.Drawing.Size(100, 20);
+            this.txtboxsigla.TabIndex = 29;
             // 
             // txtboxId
             // 
@@ -136,23 +136,23 @@ namespace MapaSalaMiguel.formularios
             this.label2.TabIndex = 32;
             this.label2.Text = "Nome";
             // 
-            // label3
+            // Turno
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Ano";
+            this.Turno.AutoSize = true;
+            this.Turno.Location = new System.Drawing.Point(111, 190);
+            this.Turno.Name = "Turno";
+            this.Turno.Size = new System.Drawing.Size(35, 13);
+            this.Turno.TabIndex = 33;
+            this.Turno.Text = "Turno";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(111, 229);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 34;
-            this.label5.Text = "Periodo";
+            this.label5.Text = "Sigla";
             // 
             // btnLimpar
             // 
@@ -213,15 +213,15 @@ namespace MapaSalaMiguel.formularios
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Turno);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtboxId);
-            this.Controls.Add(this.txtboxPeriodo);
-            this.Controls.Add(this.txtboxAno);
+            this.Controls.Add(this.txtboxsigla);
+            this.Controls.Add(this.txtboxturno);
             this.Controls.Add(this.txtboxNome);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.chkboxVagas);
+            this.Controls.Add(this.chkboxativo);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.dtGridCursos);
             this.Name = "FrmCursos";
@@ -235,17 +235,17 @@ namespace MapaSalaMiguel.formularios
 
         #endregion
 
-        private System.Windows.Forms.CheckBox chkboxVagas;
+        private System.Windows.Forms.CheckBox chkboxativo;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView dtGridCursos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtboxNome;
-        private System.Windows.Forms.TextBox txtboxAno;
-        private System.Windows.Forms.TextBox txtboxPeriodo;
+        private System.Windows.Forms.TextBox txtboxturno;
+        private System.Windows.Forms.TextBox txtboxsigla;
         private System.Windows.Forms.TextBox txtboxId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Turno;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnExcluir;

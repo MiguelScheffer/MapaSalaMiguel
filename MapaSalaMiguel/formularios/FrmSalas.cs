@@ -24,7 +24,7 @@ namespace MapaSala.Formularios
             dtGridSalas.DataSource = dados;
             foreach (var atributos in typeof(SalasEntidades).GetProperties())
             {
-                //return new object[] { Id, ano, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
+                //return new object[] { Id, Periodo, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
                 dados.Columns.Add(atributos.Name);
             }
             dtGridSalas.DataSource = dao.obtersala();
@@ -50,7 +50,7 @@ namespace MapaSala.Formularios
         {
             SalasEntidades sala = new SalasEntidades();
             sala.Id = Convert.ToInt32(txtboxId.Text);
-            sala.ano = Convert.ToInt32(txtboxAno.Text);
+            sala.Periodo = Convert.ToInt32(txtboxAno.Text);
             sala.periodo = txtboxPeriodo.Text;
             sala.Nome = txtnomesala.Text;
             

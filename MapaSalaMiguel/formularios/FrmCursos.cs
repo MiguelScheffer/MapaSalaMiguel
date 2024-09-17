@@ -16,7 +16,7 @@ namespace MapaSalaMiguel.formularios
     {
         DataTable dados;
         int LinhaSelecionada;
-        cursosDAO dao = new cursosDAO();
+        CursosDAO dao = new CursosDAO();
         public FrmCursos()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace MapaSalaMiguel.formularios
             {
                 dados.Columns.Add(atributos.Name);
             }
-            dtGridCursos.DataSource = dao.obtercurso();
+            dtGridCursos.DataSource = dao.ObterCursos();
 
 
         }
@@ -41,9 +41,9 @@ namespace MapaSalaMiguel.formularios
             CursosEntidade cursos = new CursosEntidade(); // arumar 
             cursos.Id = Convert.ToInt32(txtboxId.Text);
             cursos.Nome = txtboxNome.Text;
-            cursos.Ano = Convert.ToInt32(txtboxAno.Text);
-            cursos.Periodo = txtboxPeriodo.Text;
-            cursos.Vagas = chkboxVagas.Checked;
+            cursos.Turno = txtboxturno.Text;
+            cursos.Sigla = txtboxsigla.Text;
+            cursos.Ativo = chkboxativo.Checked;
             dados.Rows.Add(cursos.Linha());
             limpar();
         }
@@ -55,10 +55,11 @@ namespace MapaSalaMiguel.formularios
         private void limpar()
         {
             txtboxId.Text = "";
-            txtboxAno.Text = "";
             txtboxNome.Text = "";
-            txtboxPeriodo.Text = "";
-            chkboxVagas.Checked = false;
+            txtboxturno.Text = "";
+            
+            txtboxsigla.Text = "";
+            chkboxativo.Checked = false;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -72,18 +73,18 @@ namespace MapaSalaMiguel.formularios
             LinhaSelecionada = e.RowIndex;
             txtboxId.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value.ToString();
             txtboxNome.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value.ToString();
-            txtboxAno.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
-            txtboxPeriodo.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
-            chkboxVagas.Checked = Convert.ToBoolean(dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value);
+            txtboxturno.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value.ToString();
+            txtboxsigla.Text = dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value.ToString();
+            chkboxativo.Checked = Convert.ToBoolean(dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value);
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             dtGridCursos.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
             dtGridCursos.Rows[LinhaSelecionada].Cells[1].Value = txtboxNome.Text;
-            dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value = txtboxAno.Text;
-            dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value = txtboxPeriodo.Text;
-            dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value = chkboxVagas.Checked;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[2].Value = txtboxturno.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[3].Value = txtboxsigla.Text;
+            dtGridCursos.Rows[LinhaSelecionada].Cells[4].Value = chkboxativo.Checked;
 
         }
 
@@ -94,7 +95,7 @@ namespace MapaSalaMiguel.formularios
 
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
-            dtGridCursos.DataSource = dao.pesquisar(txtpesquisa.Text);
+            dtGridCursos.DataSource = dao.Pesquisar(txtpesquisa.Text);
         }
 
         private void label6_Click(object sender, EventArgs e)

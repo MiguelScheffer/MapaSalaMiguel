@@ -65,7 +65,7 @@ namespace MapaSala.DAO
         public DataTable obterDisciplina()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM Disciplinas ORDER BY Id DESC";
+            string query = "SELECT Id, Nome, Sigla, Ativo FROM Disciplinas ORDER BY Id DESC";
 
             using (var conexao = new SqlConnection(LinhaConexao))
             {
@@ -83,19 +83,20 @@ namespace MapaSala.DAO
                         {
                             while (leitura.Read())
                             {
-                                DisciplinasEntidade disciplinas = new DisciplinasEntidade
-                                {
-                                    ID = Convert.ToInt32(leitura["Id"]),
-                                    nome = leitura["Nome"].ToString(),
-                                    sigla = leitura["Sigla"].ToString(),
-                                    ativo = Convert.ToBoolean(leitura["Ativo"])
-                                };
+                                DisciplinasEntidade d = new DisciplinasEntidade();
 
-                                dt.Rows.Add(disciplinas.Linha());
+                                d.ID = Convert.ToInt32(leitura[0]);
+                                d.nome = leitura[1].ToString();
+                                d.sigla = leitura[2].ToString();
+                                d.ativo = Convert.ToBoolean( leitura[3]   );
+                                
+
+                                dt.Rows.Add(d.Linha());
                             }
                         }
                     }
                 }
+                conexao.Close();
             }
 
             return dt;

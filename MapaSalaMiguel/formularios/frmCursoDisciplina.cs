@@ -16,7 +16,7 @@ namespace MapaSalaMiguel.formularios
     public partial class frmCursoDisciplina : Form
     {
         disciplinasDAO disciplinasDAO = new disciplinasDAO();
-        cursosDAO cursosDAO = new cursosDAO();
+        CursosDAO cursosDAO = new CursosDAO();
         CursoDisciplinaDAO dao = new CursoDisciplinaDAO();
 
 
