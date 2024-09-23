@@ -14,14 +14,13 @@ namespace MapaSala.DAO
             using (var conexao = new SqlConnection(LinhaConexao))
             {
                 conexao.Open();
-                string query = "INSERT INTO Salas (Nome, Ano, Periodo, npcs, ncadeiras, Disponivel) VALUES (@nome, @Periodo, @periodo, @npcs, @ncadeiras, @disp)";
+                string query = "INSERT INTO Salas (Nome, Ano, npcs, ncadeiras, Disponivel) VALUES (@nome,  @npcs, @ncadeiras, @disp)";
 
                 using (var comando = new SqlCommand(query, conexao))
                 {
                     comando.Parameters.AddWithValue("@nome", salas.Nome);
-                    comando.Parameters.AddWithValue("@Periodo", salas.Periodo);
-                    comando.Parameters.AddWithValue("@periodo", salas.periodo);
-                    comando.Parameters.AddWithValue("@npcs", salas.NumeroComputador);
+                    
+                    comando.Parameters.AddWithValue("@npcs", salas.NumeroComputadores);
                     comando.Parameters.AddWithValue("@ncadeiras", salas.NumeroCadeiras);
                     comando.Parameters.AddWithValue("@disp", salas.Disponivel);
 
@@ -75,8 +74,8 @@ namespace MapaSala.DAO
         {
             DataTable dt = new DataTable();
             string query = string.IsNullOrEmpty(pesquisar) ?
-                "SELECT Id, Periodo, Nome, periodo, NumeroComputador, IsLab, NumeroCadeiras, Disponivel FROM Salas ORDER BY Id DESC" :
-                "SELECT Id, Periodo, Nome, periodo, NumeroComputador, IsLab, NumeroCadeiras, Disponivel FROM Salas WHERE Nome LIKE @pesquisar ORDER BY Id DESC";
+                "SELECT Id, Nome,  NumeroComputadores, IsLab, NumeroCadeiras, Disponivel FROM Salas ORDER BY Id DESC" :
+                "SELECT Id,  Nome, NumeroComputadores, IsLab, NumeroCadeiras, Disponivel FROM Salas WHERE Nome LIKE @pesquisar ORDER BY Id DESC";
 
             using (var conexao = new SqlConnection(LinhaConexao))
             {
@@ -102,10 +101,10 @@ namespace MapaSala.DAO
                                 SalasEntidades salas = new SalasEntidades
                                 {
                                     Id = Convert.ToInt32(leitura["Id"]),
-                                    Periodo = Convert.ToInt32(leitura["Periodo"]),
+                                    
                                     Nome = leitura["Nome"].ToString(),
-                                    periodo = leitura["periodo"].ToString(),
-                                    NumeroComputador = Convert.ToInt32(leitura["NumeroComputador"]),
+                                   
+                                    NumeroComputadores = Convert.ToInt32(leitura["NumeroComputadores"]),
                                     IsLab = Convert.ToBoolean(leitura["IsLab"]),
                                     NumeroCadeiras = Convert.ToInt32(leitura["NumeroCadeiras"]),
                                     Disponivel = Convert.ToBoolean(leitura["Disponivel"])

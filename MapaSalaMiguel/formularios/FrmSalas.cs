@@ -50,13 +50,12 @@ namespace MapaSala.Formularios
         {
             SalasEntidades sala = new SalasEntidades();
             sala.Id = Convert.ToInt32(txtboxId.Text);
-            sala.Periodo = Convert.ToInt32(txtboxAno.Text);
-            sala.periodo = txtboxPeriodo.Text;
+           
             sala.Nome = txtnomesala.Text;
             
             sala.NumeroCadeiras = Convert.ToInt32(numCadeiras.Value);
             sala.Disponivel = chkDisponivel.Checked;
-            sala.NumeroComputador = Convert.ToInt32(numComputadores.Value);
+            sala.NumeroComputadores = Convert.ToInt32(numComputadores.Value);
             
             sala.IsLab = chkLaboratorio.Checked;
 
@@ -92,7 +91,6 @@ namespace MapaSala.Formularios
             txtboxId.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString();
             txtboxAno.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
             
-            txtboxPeriodo.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value.ToString();
             txtnomesala.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value.ToString();
             numComputadores.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value.ToString();
             chkDisponivel.Checked = Convert.ToBoolean(dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value);
@@ -104,7 +102,6 @@ namespace MapaSala.Formularios
         {
             dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
             dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value = txtboxAno.Text;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[2].Value = txtboxPeriodo.Text;
             dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value = txtnomesala.Text;
             dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value = numComputadores.Value.ToString(); 
             dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value = chkDisponivel.Checked;

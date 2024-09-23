@@ -9,11 +9,11 @@ namespace model.entidades
     public class SalasEntidades
     {
         public int Id { get; set; }
-        public int Periodo { get; set; }
+      
         
-        public string periodo { get; set; }
+   
         public string Nome { get; set; }
-        public int NumeroComputador { get; set; }
+        public int NumeroComputadores { get; set; }
         public bool IsLab { get; set; }
         public int NumeroCadeiras { get; set; }
         public bool Disponivel { get; set; }
@@ -21,7 +21,7 @@ namespace model.entidades
         public Object[] Linha()
         {
             // dados.Rows.Add("123","2024","Integral","Sala MAKER","21",true,"12",true);
-            return new object[] { Id, Periodo, periodo, Nome,NumeroComputador,IsLab,  NumeroCadeiras,Disponivel };
+            return new object[] { Id,  Nome,NumeroComputadores,IsLab,  NumeroCadeiras,Disponivel };
         }
     }
 }
