@@ -257,7 +257,7 @@ namespace MapaSala.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(794, 454);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtpesquisa);
             this.Controls.Add(this.label7);
@@ -281,7 +281,9 @@ namespace MapaSala.Formularios
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtnomesala);
             this.Name = "frmSalas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSalas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmSalas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numComputadores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCadeiras)).EndInit();
