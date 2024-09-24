@@ -39,12 +39,13 @@ namespace MapaSalaMiguel.formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             CursosEntidade cursos = new CursosEntidade(); // arumar 
-            cursos.Id = Convert.ToInt32(txtboxId.Text);
+            //cursos.Id = Convert.ToInt32(txtboxId.Text);
             cursos.Nome = txtboxNome.Text;
             cursos.Turno = txtboxturno.Text;
             cursos.Sigla = txtboxsigla.Text;
             cursos.Ativo = chkboxativo.Checked;
-            dados.Rows.Add(cursos.Linha());
+            dao.Inserir(cursos);
+            dtGridCursos.DataSource = dao.ObterCursos();
             limpar();
         }
 

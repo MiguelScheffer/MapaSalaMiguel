@@ -56,6 +56,8 @@ namespace MapaSalaMiguel.formularios
             entidade.DisciplinaId = Convert.ToInt32(cbDisciplinas.SelectedValue);
             entidade.Periodo = comboperiodo.SelectedItem.ToString();
             cursoDisciplinaDAO.Inserir(entidade);
+
+            AtualizarGrid(dao.ObterCursoDisciplina());
         }
 
         private void cbDisciplinas_SelectedIndexChanged(object sender, EventArgs e)
