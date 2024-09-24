@@ -107,9 +107,9 @@ namespace MapaSalaMiguel.formularios
             // 
             this.comboperiodo.FormattingEnabled = true;
             this.comboperiodo.Items.AddRange(new object[] {
-            "1º MÓDULO INTEGRAL",
-            "2º MÓDULO INTEGRAL",
-            "3º MÓDULO INTEGRAL",
+            "1º MÓDULO IN",
+            "2º MÓDULO IN",
+            "3º MÓDULO ",
             "1º MÓDULO TARDE",
             "2º MÓDULO TARDE",
             "3º MÓDULO TARDE",

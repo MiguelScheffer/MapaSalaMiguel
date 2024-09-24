@@ -14,16 +14,16 @@ namespace MapaSala.DAO
             using (var conexao = new SqlConnection(LinhaConexao))
             {
                 conexao.Open();
-                string query = "INSERT INTO Salas (Nome, Ano, npcs, ncadeiras, Disponivel) VALUES (@nome,  @npcs, @ncadeiras, @disp)";
+                string query = "INSERT INTO Salas (Nome,IsLab, NumeroComputadores, NumeroCadeiras, Disponivel) VALUES (@Nome,  @NumeroComputadores, @NumeroCadeiras, @Disponivel)";
 
                 using (var comando = new SqlCommand(query, conexao))
                 {
-                    comando.Parameters.AddWithValue("@nome", salas.Nome);
+                    comando.Parameters.AddWithValue("@Nome", salas.Nome);
                     
-                    comando.Parameters.AddWithValue("@npcs", salas.NumeroComputadores);
-                    comando.Parameters.AddWithValue("@ncadeiras", salas.NumeroCadeiras);
-                    comando.Parameters.AddWithValue("@disp", salas.Disponivel);
-
+                    comando.Parameters.AddWithValue("@ NumeroComputadores", salas.NumeroComputadores);
+                    comando.Parameters.AddWithValue("@ NumeroCadeiras", salas.NumeroCadeiras);
+                    comando.Parameters.AddWithValue("@Disponivel", salas.Disponivel);
+                    // "SELECT Id, Nome,  NumeroComputadores, IsLab, NumeroCadeiras, Disponivel FROM Salas ORDER BY Id DESC" :
                     comando.ExecuteNonQuery();
                 }
             }
@@ -100,7 +100,7 @@ namespace MapaSala.DAO
                             {
                                 SalasEntidades salas = new SalasEntidades
                                 {
-                                    Id = Convert.ToInt32(leitura["Id"]),
+                                    
                                     
                                     Nome = leitura["Nome"].ToString(),
                                    

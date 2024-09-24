@@ -49,7 +49,7 @@ namespace MapaSala.Formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             SalasEntidades sala = new SalasEntidades();
-            sala.Id = Convert.ToInt32(txtboxId.Text);
+            //sala.Id = Convert.ToInt32(txtboxId.Text);
            
             sala.Nome = txtnomesala.Text;
             
@@ -59,7 +59,8 @@ namespace MapaSala.Formularios
             
             sala.IsLab = chkLaboratorio.Checked;
 
-            dados.Rows.Add(sala.Linha());
+            dao.Inserir(sala);
+            dtGridSalas.DataSource = dao.obtersala();
             limpar();
 
         }
@@ -70,9 +71,7 @@ namespace MapaSala.Formularios
         }
         private void limpar()
         {
-            txtboxAno.Text = "";
-            txtboxId.Text = "";
-            txtboxPeriodo.Text = "";
+         
             txtnomesala.Text = "";
             numCadeiras.Text = "";
             numComputadores.Text = "";
@@ -88,8 +87,7 @@ namespace MapaSala.Formularios
         private void dtGridSalas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LinhaSelecionada = e.RowIndex;
-            txtboxId.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value.ToString();
-            txtboxAno.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value.ToString();
+            
             
             txtnomesala.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value.ToString();
             numComputadores.Text = dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value.ToString();
@@ -100,8 +98,7 @@ namespace MapaSala.Formularios
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            dtGridSalas.Rows[LinhaSelecionada].Cells[0].Value = txtboxId.Text;
-            dtGridSalas.Rows[LinhaSelecionada].Cells[1].Value = txtboxAno.Text;
+          
             dtGridSalas.Rows[LinhaSelecionada].Cells[3].Value = txtnomesala.Text;
             dtGridSalas.Rows[LinhaSelecionada].Cells[4].Value = numComputadores.Value.ToString(); 
             dtGridSalas.Rows[LinhaSelecionada].Cells[7].Value = chkDisponivel.Checked;

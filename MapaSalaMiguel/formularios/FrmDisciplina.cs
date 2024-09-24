@@ -37,11 +37,12 @@ namespace MapaSalaMiguel.formularios
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             DisciplinasEntidade disciplina = new DisciplinasEntidade();
-            disciplina.ID = Convert.ToInt32(txtboxId.Text);
+            //disciplina.ID = Convert.ToInt32(txtboxId.Text);
             disciplina.nome = txtboxNome.Text;
             disciplina.sigla = txtboxSigla.Text;
             disciplina.ativo = chkboxAtivo.Checked;
-            dados.Rows.Add(disciplina.Linha());
+            dao.Inserir(disciplina);
+            dtGridDisciplina.DataSource = dao.obterDisciplina();
             limpar();
         }
 
