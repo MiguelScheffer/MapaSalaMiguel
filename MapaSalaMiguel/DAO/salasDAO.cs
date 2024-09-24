@@ -14,16 +14,16 @@ namespace MapaSala.DAO
             using (var conexao = new SqlConnection(LinhaConexao))
             {
                 conexao.Open();
-                string query = "INSERT INTO Salas (Nome,IsLab, NumeroComputadores, NumeroCadeiras, Disponivel) VALUES (@Nome,  @NumeroComputadores, @NumeroCadeiras, @Disponivel)";
+                string query = "INSERT INTO Salas (Nome, IsLab, NumeroComputadores, NumeroCadeiras, Disponivel) VALUES (@Nome, @IsLab, @NumeroComputadores, @NumeroCadeiras, @Disponivel)";
 
                 using (var comando = new SqlCommand(query, conexao))
                 {
                     comando.Parameters.AddWithValue("@Nome", salas.Nome);
-                    
-                    comando.Parameters.AddWithValue("@ NumeroComputadores", salas.NumeroComputadores);
-                    comando.Parameters.AddWithValue("@ NumeroCadeiras", salas.NumeroCadeiras);
+                    comando.Parameters.AddWithValue("@IsLab", salas.IsLab);
+                    comando.Parameters.AddWithValue("@NumeroComputadores", salas.NumeroComputadores);
+                    comando.Parameters.AddWithValue("@NumeroCadeiras", salas.NumeroCadeiras);
                     comando.Parameters.AddWithValue("@Disponivel", salas.Disponivel);
-                    // "SELECT Id, Nome,  NumeroComputadores, IsLab, NumeroCadeiras, Disponivel FROM Salas ORDER BY Id DESC" :
+
                     comando.ExecuteNonQuery();
                 }
             }

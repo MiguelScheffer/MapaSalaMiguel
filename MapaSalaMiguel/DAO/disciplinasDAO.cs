@@ -24,13 +24,10 @@ namespace MapaSala.DAO
             using (var conexao = new SqlConnection(LinhaConexao))
             {
                 conexao.Open();
-                string query = "INSERT INTO Disciplinas (Nome, ID) VALUES (@nome, @ID)";
+                string query = "INSERT INTO Disciplinas (Nome, Sigla, Ativo) VALUES (@nome, @sigla, @ativo)";
                 using (var comando = new SqlCommand(query, conexao))
                 {
                     comando.Parameters.AddWithValue("@nome", disciplina.nome);
-                    comando.Parameters.AddWithValue("@ID", disciplina.ID);
-
-                    // Adicionar parâmetros que não estão na consulta SQL
                     comando.Parameters.AddWithValue("@sigla", disciplina.sigla);
                     comando.Parameters.AddWithValue("@ativo", disciplina.ativo);
 
@@ -38,6 +35,7 @@ namespace MapaSala.DAO
                 }
             }
         }
+
 
         public DataTable PreencherComboBox()
         {
