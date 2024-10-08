@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MapaSala.DAO;
+using MapaSala.Formularios.Editar;
+
 namespace MapaSalaMiguel.formularios
 {
     public partial class FrmDisciplina : Form
@@ -93,6 +95,22 @@ namespace MapaSalaMiguel.formularios
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+        private void dtGridDisciplina_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(
+                    dtGridDisciplina.Rows[e.RowIndex].Cells[0].Value);
+
+
+                frmEditarDisciplina editar = new frmEditarDisciplina(id);
+
+                // Inscreve-se no evento
+                editar.FormClosed += Fechou_Editar_FormClosed;
+
+                editar.ShowDialog(); // Abre o formulário como um diálogo modal
+            }
         }
         private void Fechou_Editar_FormClosed(object sender, FormClosedEventArgs e)
         {

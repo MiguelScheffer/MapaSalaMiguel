@@ -61,5 +61,10 @@ namespace MapaSalaMiguel
             frmCursoDisciplina s = new frmCursoDisciplina();
             s.ShowDialog();
         }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
