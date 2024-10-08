@@ -94,5 +94,11 @@ namespace MapaSalaMiguel.formularios
         {
 
         }
+        private void Fechou_Editar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            dtGridDisciplina.DataSource = dao.obterDisciplina();
+        }
+
     }
 }
