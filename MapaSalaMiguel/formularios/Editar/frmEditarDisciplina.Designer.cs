@@ -48,6 +48,7 @@ namespace MapaSala.Formularios.Editar
             this.btn_Excluir.TabIndex = 17;
             this.btn_Excluir.Text = "Excluir";
             this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click_1);
             // 
             // label3
             // 
@@ -75,6 +76,7 @@ namespace MapaSala.Formularios.Editar
             this.btn_Salvar.TabIndex = 14;
             this.btn_Salvar.Text = "Salvar";
             this.btn_Salvar.UseVisualStyleBackColor = true;
+            this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click_1);
             // 
             // label2
             // 

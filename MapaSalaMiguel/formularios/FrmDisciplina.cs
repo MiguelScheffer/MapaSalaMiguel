@@ -96,7 +96,14 @@ namespace MapaSalaMiguel.formularios
         {
 
         }
-        private void dtGridDisciplina_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+     
+        private void Fechou_Editar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            dtGridDisciplina.DataSource = dao.obterDisciplina();
+        }
+
+        private void dtGridDisciplina_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -112,11 +119,5 @@ namespace MapaSalaMiguel.formularios
                 editar.ShowDialog(); // Abre o formulário como um diálogo modal
             }
         }
-        private void Fechou_Editar_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            dtGridDisciplina.DataSource = dao.obterDisciplina();
-        }
-
     }
 }
